@@ -8,6 +8,7 @@
 }
 
 :root {
+
   --primary-color: #b40808;
   --primary-dark: #801313;
   --secondary-color: #e7e7e7;
@@ -72,6 +73,7 @@ header {
   margin: 0 auto;
 }
 
+
 .logo img {
   border-radius: 20rem;
   height: 4rem;
@@ -90,6 +92,7 @@ header {
   padding: 0.5rem;
   text-decoration: none;
   transition: color 0.3s;
+
 }
 
 li.button a {
