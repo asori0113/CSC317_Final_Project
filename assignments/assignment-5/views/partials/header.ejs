@@ -25,6 +25,12 @@
           <li><a href="/auth/register" class="<%= path === '/auth/register' ? 'active' : '' %>">Register</a></li>
         <% } %>
       </ul>
+      <% if (isAuthenticated) { %>
+      <ul class="authed-nav-links">
+          <li><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
+          <li><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
+          <li><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
+      </ul> <% }%>
     </nav>
   </header>
 
