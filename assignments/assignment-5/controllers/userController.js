@@ -31,6 +31,22 @@ exports.getSettings = (req, res) => {
   });
 };
 
+exports.getCreate = (req, res) => {
+  res.render('user/create', {
+    title: 'Create',
+    user: req.session.user,
+    errors: []
+  });
+};
+
+exports.getHome = (req, res) => {
+  res.render('user/home', {
+    title: 'Home',
+    user: req.session.user,
+    errors: []
+  });
+};
+
 /**
  * Update user settings
  */
