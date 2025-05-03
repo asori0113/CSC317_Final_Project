@@ -2,6 +2,8 @@
  * User routes
  * Handles protected routes that require authentication
  */
+
+
 const express = require('express');
 const router = express.Router();
 const { isAuthenticated } = require('../middlewares/auth');

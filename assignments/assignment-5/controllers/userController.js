@@ -2,6 +2,7 @@
  * User Controller
  * Handles logic for user-related pages and actions
  */
+
 const User = require('../models/User');
 const Image = require('../models/Image');
 const upload = require('../middlewares/upload');
