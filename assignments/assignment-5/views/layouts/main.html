@@ -10,7 +10,7 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <a href="/">Auth Template</a>
+        <a href="/"><img src="/images/istockphoto-1135090585-1024x1024.jpg"></a>
       </div>
       <ul class="nav-links">
         <li><a href="/" class="{{#if (isActiveRoute path '/')}}active{{/if}}">Home</a></li>
@@ -21,10 +21,21 @@
           <li><a href="/user/settings" class="{{#if (isActiveRoute path '/user/settings')}}active{{/if}}">Settings</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         {{else}}
-          <li><a href="/auth/login" class="{{#if (isActiveRoute path '/auth/login')}}active{{/if}}">Login</a></li>
-          <li><a href="/auth/register" class="{{#if (isActiveRoute path '/auth/register')}}active{{/if}}">Register</a></li>
+          <li class="button"><a href="/auth/login" class="{{#if (isActiveRoute path '/auth/login')}}active{{/if}}" id="button-login">Login</a></li>
+          <li class="button"><a href="/auth/register" class="{{#if (isActiveRoute path '/auth/register')}}active{{/if}}" id="button-register">Register</a></li>
         {{/if}}
       </ul>
+
+      <% if (isAuthenticated) { %>
+        <ul class="authed-nav-links">
+   
+            <li><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
+   
+            <li><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
+   
+            <li><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
+  
+        </ul> <% }%>
     </nav>
   </header>
 

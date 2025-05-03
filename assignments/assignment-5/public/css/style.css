@@ -8,13 +8,13 @@
 }
 
 :root {
-  --primary-color: #3498db;
-  --primary-dark: #2980b9;
-  --secondary-color: #2ecc71;
-  --secondary-dark: #27ae60;
-  --text-color: #333;
-  --text-light: #666;
-  --background-color: #f5f5f5;
+  --primary-color: #b40808;
+  --primary-dark: #801313;
+  --secondary-color: #e7e7e7;
+  --secondary-dark: #c9c9c9;
+  --text-color: #131313;
+  --text-light: #313131;
+  --background-color: #ececec;
   --border-color: #ddd;
   --error-color: #e74c3c;
   --success-color: #2ecc71;
@@ -72,17 +72,17 @@ header {
   margin: 0 auto;
 }
 
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-decoration: none;
+.logo img {
+  border-radius: 20rem;
+  height: 4rem;
+  width: auto;  
 }
 
 .nav-links {
   display: flex;
   list-style: none;
   gap: 20px;
+  height: fit-content;
 }
 
 .nav-links a {
@@ -90,6 +90,28 @@ header {
   padding: 0.5rem;
   text-decoration: none;
   transition: color 0.3s;
+}
+
+li.button a {
+  font-size: 1rem; /* Adjust this size as needed */
+  padding: 1rem;
+}
+
+#button-login {
+  height: 10rem;
+  border-radius: 5rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  text-decoration: none;
+
+}
+
+#button-register {
+  border-radius: 5rem;
+  color: var(--text-color);
+  background-color: var(--secondary-dark);
+  text-decoration: none;
+
 }
 
 .nav-links a:hover, .nav-links a.active {
