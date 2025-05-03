@@ -20,6 +20,12 @@ router.get('/profile', userController.getProfile);
 // GET /user/settings - User settings page
 router.get('/settings', userController.getSettings);
 
+// GET /user/settings - User home page
+router.get('/home', userController.getHome);
+
+// GET /user/settings - User create page
+router.get('/create', userController.getCreate);
+
 // POST /user/settings - Update user settings
 router.post('/settings', userController.updateSettings);
 
