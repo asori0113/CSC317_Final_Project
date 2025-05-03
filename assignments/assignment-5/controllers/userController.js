@@ -2,6 +2,7 @@
  * User Controller
  * Handles logic for user-related pages and actions
  */
+
 const User = require('../models/User');
 const Image = require('../models/Image');
 const upload = require('../middlewares/upload');
@@ -26,6 +27,22 @@ exports.getProfile = (req, res) => {
 exports.getSettings = (req, res) => {
   res.render('user/settings', {
     title: 'Settings',
+    user: req.session.user,
+    errors: []
+  });
+};
+
+exports.getCreate = (req, res) => {
+  res.render('user/create', {
+    title: 'Create',
+    user: req.session.user,
+    errors: []
+  });
+};
+
+exports.getHome = (req, res) => {
+  res.render('user/home', {
+    title: 'Home',
     user: req.session.user,
     errors: []
   });
