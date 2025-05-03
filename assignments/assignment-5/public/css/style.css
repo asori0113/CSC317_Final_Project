@@ -52,7 +52,14 @@ a:hover {
   padding: 20px;
 }
 
+.container-2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 main {
+  display: block;
   flex: 1;
 }
 
@@ -60,8 +67,11 @@ main {
  * Header & Navigation 
  */
 header {
+  margin: 0;
+  display: flex;
   background-color: var(--white);
   box-shadow: var(--shadow);
+  gap: 65%;
 }
 
 .navbar {
@@ -71,6 +81,10 @@ header {
   padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.logo {
+  margin-left: 4rem;
 }
 
 .logo img {
