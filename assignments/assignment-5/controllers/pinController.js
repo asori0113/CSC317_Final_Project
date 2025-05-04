@@ -26,7 +26,7 @@ exports.postCreate = async (req, res, next) => {
             // Check for validation errors
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                return res.status(400).render('user/create', {
+                return res.status(400).render('pin/create', {
                     title: 'Create',
                     errors: errors.array(),
                     createPinData: {
@@ -65,13 +65,6 @@ exports.postCreate = async (req, res, next) => {
                     type: 'success',
                     text: 'Post created.'
                 };
-
-
-                // Redirect to login page with success message
-                // req.session.flashMessage = {
-                //     type: 'success',
-                //     text: 'Post created.'
-                // };
                 res.redirect('/user/home');
 
             }
@@ -80,7 +73,6 @@ exports.postCreate = async (req, res, next) => {
             {
                 next(error);
             }
-        res.redirect('/user/home');
         });
     };
 
