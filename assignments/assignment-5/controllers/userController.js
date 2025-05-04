@@ -41,10 +41,10 @@ exports.getCreate = (req, res) => {
 };
 
 exports.getHome = (req, res) => {
+  
   res.render('user/home', {
     title: 'Home',
-    user: req.session.user,
-    errors: []
+    user: user
   });
 };
 

@@ -10,9 +10,11 @@
 
 :root {
   --primary-color: #b40808;
-  --primary-dark: #801313;
-  --secondary-color: #e7e7e7;
-  --secondary-dark: #c9c9c9;
+  --primary-dark: #8a1313;
+  --primary-light: #fa2323;
+  --secondary-color: #dddddd;
+  --secondary-dark: #acabab;
+  --secondary-light: #f0f0f0;
   --text-color: #131313;
   --text-light: #313131;
   --background-color: #ececec;
@@ -121,12 +123,28 @@ li.button a {
 
 }
 
+#button-login:hover {
+  background-color: var(--primary-dark);
+}
+
+#button-login:active {
+  background-color: var(--primary-light);
+}
+
 #button-register {
   border-radius: 5rem;
   color: var(--text-color);
-  background-color: var(--secondary-dark);
+  background-color: var(--secondary-color);
   text-decoration: none;
 
+}
+
+#button-register:hover {
+  background-color: var(--secondary-dark);
+}
+
+#button-register:active {
+  background-color: var(--secondary-light);
 }
 
 .nav-links a:hover, .nav-links a.active {
