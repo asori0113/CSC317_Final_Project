@@ -141,7 +141,7 @@ exports.postLogin = async (req, res, next) => {
       console.log('Session data:', req.session);
       
       // Redirect to originally requested URL or profile page
-      const redirectUrl = req.session.returnTo || '/user/profile';
+      const redirectUrl = req.session.returnTo || '/user/home';
       delete req.session.returnTo;
       
       console.log('Redirecting to:', redirectUrl);

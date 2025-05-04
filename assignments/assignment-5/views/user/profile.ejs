@@ -1,4 +1,9 @@
-<%- include('../partials/header') %>
+
+<% if (isAuthenticated) { %>
+  <%- include('../partials/header-auth') %>
+<% } else { %>
+  <%- include('../partials/header') %>
+<% } %>
 
 
 <div class="container">
@@ -40,5 +45,3 @@
     </div>
   </div>
 </div>
-
-<%- include('../partials/footer') %>
