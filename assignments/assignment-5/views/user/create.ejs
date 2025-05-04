@@ -7,7 +7,7 @@
         <h1>Create post (register copy)</h1>
         <%- include('../partials/form-errors') %>
 
-        <form action="/pin/create" method="POST">
+        <form action="/pin/create" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
             <div class="form-group">
