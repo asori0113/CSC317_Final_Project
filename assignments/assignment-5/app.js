@@ -18,6 +18,8 @@ const csrf = require('csurf');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const pinRoutes = require('./routes/pin');
+
 
 // Import custom middleware
 const { setLocals } = require('./middlewares/locals');
@@ -146,6 +148,7 @@ app.use(setLocals);
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+app.use('/pin', pinRoutes);
 
 // Error handling middleware
 app.use(handleErrors);
