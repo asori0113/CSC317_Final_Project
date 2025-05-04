@@ -1,4 +1,10 @@
+<% if (isAuthenticated) { %>
+<%- include('./partials/header-auth') %>
+<% } else { %>
 <%- include('./partials/header') %>
+<% } %>
+
+
 
 <div class="container">
   <div class="about-section">
@@ -30,5 +36,3 @@
     </ul>
   </div>
 </div>
-
-<%- include('./partials/footer') %>

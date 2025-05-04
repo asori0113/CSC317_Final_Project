@@ -44,7 +44,7 @@ exports.getHome = (req, res) => {
   
   res.render('user/home', {
     title: 'Home',
-    user: user
+    user: req.session.user,
   });
 };
 

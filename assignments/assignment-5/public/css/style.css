@@ -61,7 +61,7 @@ a:hover {
 }
 
 main {
-  display: block;
+  display: flex;
   flex: 1;
 }
 
@@ -85,14 +85,8 @@ header {
   margin: 0 auto;
 }
 
-.logo {
+.topbar {
   margin-left: 4rem;
-}
-
-.logo img {
-  border-radius: 20rem;
-  height: 4rem;
-  width: auto;  
 }
 
 .nav-links {
@@ -102,11 +96,36 @@ header {
   height: fit-content;
 }
 
-.nav-links a {
+.nav-links a,.authed-nav-links a {
   color: var(--text-color);
   padding: 0.5rem;
   text-decoration: none;
   transition: color 0.3s;
+}
+
+.sidebar {
+  height: 70vh;
+  background-color: var(--white);
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 4rem;
+}
+.authed-nav-links {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 20px;
+  height: fit-content;
+
+}
+
+.logo img {
+  border-radius: 20rem;
+  height: 4rem;
+  width: auto;  
 }
 
 li.button a {
@@ -150,6 +169,8 @@ li.button a {
 .nav-links a:hover, .nav-links a.active {
   color: var(--primary-color);
 }
+
+
 
 /* 
  * Footer 
