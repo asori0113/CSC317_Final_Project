@@ -18,7 +18,7 @@ exports.postCreate = async (req, res, next) => {
     upload.single('pinImage')(req, res, async (err) => {
         if (err) {
             // Handle file upload error
-            return res.status(400).render('pin/create', {
+            return res.status(400).render('user/create', {
                 title: 'Create Pin',
                 // user: req.session.user,
                 errors: [{msg: err.message || 'File upload error'}]
@@ -28,7 +28,7 @@ exports.postCreate = async (req, res, next) => {
             // Check for validation errors
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                return res.status(400).render('pin/create', {
+                return res.status(400).render('user/create', {
                     title: 'Create',
                     errors: errors.array(),
                     createPinData: {
