@@ -8,36 +8,34 @@
         <%= title %> | CSC317Project - Group L
     </title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-auth.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
+    
+    <header class="header-auth">
             <nav class="topbar">
-                <div class="searchbar"> </div>
+                <div class="searchbar"> 
+                    <h2>I am a searchbar</h2>
+                </div>
                 <ul class="nav-links">
                     <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
-                    <% if (isAuthenticated) { %>
-                        <li><a href="/user/profile" class="<%= path === '/user/profile' ? 'active' : '' %>">Profile</a>
-                        </li>
-                        <li><a href="/auth/logout">Logout</a></li>
-                        <% } else { %>
-                            <li><a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a></li>
-                            <li class="button"><a href="/auth/login"
-                                    class="{{#if (isActiveRoute path '/auth/login')}}active{{/if}}"
-                                    id="button-login">Login</a></li>
-                            <li class="button"><a href="/auth/register"
-                                    class="{{#if (isActiveRoute path '/auth/register')}}active{{/if}}"
-                                    id="button-register">Register</a> </li>
-                            <% } %>
+                    <li><a href="/user/profile" class="<%= path === '/user/profile' ? 'active' : '' %>">Profile</a></li>
                 </ul>
+                <div class="profile-avatar-top">
+                    <% if (user.hasProfileImage) { %>
+                      <img src="/user/profile-image" alt="Profile picture">
+                    <% } else { %>
+                      <!-- Display first letter of username as avatar -->
+                      <span><%= user.username.charAt(0) %></span>
+                    <% } %>
+                  </div>
             </nav>
     </header>
     <main>
     <nav class="sidebar">
         <ul class="authed-nav-links">
-            <li class="logo"><a href="../user/home"><img name="logo" src="/images/stockphoto-1135090585-1024x1024.jpg"
-                        alt="logo"></a></li>
+            <li class="logo"><a href="../user/home"><img name="logo" src="/images/stockphoto-1135090585-1024x1024.jpg" alt="logo"></a></li>
             <li><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
             <li><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
             <li><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
