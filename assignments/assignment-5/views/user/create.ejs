@@ -4,72 +4,49 @@
 
 <div class="container">
     <div class="auth-form">
-        <h1>Placeholder for create post (register copy)</h1>
+        <h1>Create post (register copy)</h1>
         <%- include('../partials/form-errors') %>
 
-        <form action="/auth/register" method="POST">
+        <form action="/pin/create" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
             <div class="form-group">
-                <label for="username">Username</label>
+                <label for="title">Title</label>
                 <input
                         type="text"
                         id="username"
-                        name="username"
-                        value="<%= typeof formData !== 'undefined' ? formData.username || '' : '' %>"
-                        placeholder="Choose a username (3-20 characters)"
-                        required
-                        minlength="3"
-                        maxlength="20"
+                        name= "title"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.title || '' : '' %>"
+                        placeholder="Add a title"
+                >
+            </div>
+            <div class="form-group">
+                <label for="description">Title</label>
+                <input
+                        type="text"
+                        id="username"
+                        name= "description"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Add a description"
                 >
             </div>
 
             <div class="form-group">
-                <label for="email">Email Address</label>
+                <label for="pinImage">Profile Image</label>
                 <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value="<%= typeof formData !== 'undefined' ? formData.email || '' : '' %>"
-                        placeholder="Enter your email address"
-                        required
+                        type="file"
+                        id="pinImage"
+                        name="pinImage"
+                        accept="image/png, image/jpeg, image/gif"
                 >
+                <div class="form-hint">Max size: 2MB. Formats: JPG, PNG, GIF</div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Create a password (min 8 characters)"
-                        required
-                        minlength="8"
-                >
-                <div class="form-hint">
-                    Password must include at least 8 characters with 1 uppercase letter, 1 lowercase letter, and 1 number.
-                </div>
+            <div class="form-actions">
+                <button type="submit" class="btn primary-btn">Post</button>
             </div>
-
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Enter your password again"
-                        required
-                >
-            </div>
-
-<!--            <div class="form-actions">-->
-<!--                <button type="submit" class="btn primary-btn">Register</button>-->
-<!--            </div>-->
         </form>
 
-        <div class="form-footer">
-            <p>Already have an account? <a href="/auth/login">Login</a></p>
-        </div>
     </div>
 </div>
 
