@@ -6,6 +6,8 @@
 const Pin = require('../models/Pin');
 const upload = require('../middlewares/upload');
 const { validationResult } = require('express-validator');
+const User = require("../models/User");
+
 
 /**
  * Process registration form submission
@@ -77,55 +79,45 @@ exports.postCreate = async (req, res, next) => {
     };
 
 
-// upload pic things
-// async (req, res, next) => {
+/**
+ * Get current user's profile image
+ */
+// by index??
+exports.getPinImage = async (req, res, next) => {
+    try {
+        // Get user ID from params
+        const pin = req.params.pin;
+
+        // Find image in database
+        // const image = await Image.findOne({ userId: userId });
+
+        if (!pin  || !pin.data) {
+            return res.status(404).send('Image not found');
+        }
+
+        // Set the content type header and send the image data
+        res.set('Content-Type', pin.contentType);
+        res.send(pin.data);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// exports.getPinImageTest = async (req, res, next) => {
 //     try {
-//         upload.single('profileImage')(req, res, async (err) => {
-//             if (err) {
-//                 // Handle file upload error
-//                 return res.status(400).render('user/settings', {
-//                     title: 'Settings',
-//                     user: req.session.user,
-//                     errors: [{ msg: err.message || 'File upload error' }]
-//                 });
-//             }
+//         // Get user ID from params
+//         const pin = await Pin.findOne({ title: 'test'});
 //
-//         } catch (error) {
-//             next(error);
+//         // Find image in database
+//
+//         if (!pin  || !pin.data) {
+//             return res.status(404).send('Image not found');
 //         }
-//     };
 //
-//     // Process profile image if uploaded
-//     if (req.file) {
-//         try {
-//             // // Check if user already has a profile image
-//             // const existingImage = await Image.findOne({ userId: userId });
-//
-//             if (existingImage) {
-//                 // Update existing image
-//                 existingImage.data = req.file.buffer;
-//                 existingImage.contentType = req.file.mimetype;
-//                 await existingImage.save();
-//             } else {
-//                 // Create new image document
-//                 const newImage = new Image({
-//                     userId: userId,
-//                     data: req.file.buffer,
-//                     contentType: req.file.mimetype
-//                 });
-//                 await newImage.save();
-//
-//                 // Update user to indicate they have a profile image
-//                 user.hasProfileImage = true;
-//             }
-//
-//             // Update session to indicate user has a profile image
-//             req.session.user.hasProfileImage = true;
-//         } catch (imageError) {
-//             console.error('Error handling profile image:', imageError);
-//             return res.status(500).render('user/settings', {
-//                 title: 'Settings',
-//                 user: req.session.user,
-//                 errors: [{ msg: 'Error saving profile image' }]
-//             });
-//         }
+//         // Set the content type header and send the image data
+//         res.set('Content-Type', pin.contentType);
+//         res.send(pin.data);
+//     } catch (error) {
+//         next(error);
+//     }
+// };
