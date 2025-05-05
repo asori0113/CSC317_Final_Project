@@ -1,4 +1,3 @@
-
 /**
  * User model
  * Defines the schema for users in our application
@@ -27,6 +26,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Password is required'],
     minlength: [8, 'Password must be at least 8 characters']
+  },
+  hasProfileImage: {
+    type: Boolean,
+    default: false
   },
   createdAt: {
     type: Date,
