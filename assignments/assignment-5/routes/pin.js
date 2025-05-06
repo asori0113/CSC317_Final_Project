@@ -6,6 +6,7 @@ const Pin = require('../models/Pin');
 const pinController = require('../controllers/pinController');
 
 
-router.post('/create', pinController.postCreate);
+router.post('/pin-post-creation', pinController.postCreate);
 
+router.get('/get-image/:pin', pinController.getPinImage);
 module.exports = router;

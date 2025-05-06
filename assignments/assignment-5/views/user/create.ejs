@@ -7,7 +7,7 @@
         <h1>Create post (register copy)</h1>
         <%- include('../partials/form-errors') %>
 
-        <form action="/pin/create" method="POST" enctype="multipart/form-data">
+        <form action="/pin/pin-post-creation" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
             <div class="form-group">
@@ -18,6 +18,7 @@
                         name= "title"
                         value="<%= typeof createPinData !== 'undefined' ? createPinData.title || '' : '' %>"
                         placeholder="Add a title"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -38,6 +39,7 @@
                         id="pinImage"
                         name="pinImage"
                         accept="image/png, image/jpeg, image/gif"
+                        required
                 >
                 <div class="form-hint">Max size: 2MB. Formats: JPG, PNG, GIF</div>
             </div>
