@@ -31,11 +31,13 @@ header.auth {
     box-shadow: var(--shadow);
   }
 
+/*  Top nav bar - Contains searchbar, profile img, and top nav links */
   
 .topbar {
     display: flex;
     align-items: center;
     height: 10vh;
+    width: fit-content;
     
   }
   
@@ -80,6 +82,8 @@ header.auth {
   margin-left: 2rem;
   width: 50px;
   height: 50px;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 50%;
   background-color: var(--primary-color);
   display: flex;
@@ -98,14 +102,18 @@ header.auth {
 .profile-avatar-top img {
   padding: var(--padding-std);
   width: 50px;
+  
   height: 50px;
+  
   object-fit: cover;
 }
+
+/*  Side nav bar */
 
 .sidebar {
     height: 70vh;
     background-color: var(--white);
-    width: 8vw;
+    width: 9vw;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -113,7 +121,6 @@ header.auth {
 }
 
 .authed-nav-links {
-    padding: 0;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -121,7 +128,6 @@ header.auth {
     align-items: center;
     gap: 20px;
     height: fit-content;
-    
   
 }
 
@@ -135,6 +141,51 @@ header.auth {
 .authed-nav-links a:hover, .authed-nav-links a.active {
     color: var(--primary-color);
 }
+
+@media (min-width: 768px) {
+  li.hide {
+    display:none;
+  }
+}
+
+@media (max-width: 768px) {
+  header.auth {
+    display: flex;
+    justify-content: center;
+  }
+
+  .top-nav-links {
+    margin: 0;
+    
+
+  }
+
+  .topbar {
+    
+    
+  }
+
+  /* Remove from display */
+
+  div.profile-avatar-top {
+    display: none;
+  }
+
+  li.about {
+    display: none;
+  }
+  div.searchbar {
+    display: none;
+  }
+
+  nav.sidebar {
+    display: none;
+  }
+
+
+}
+
+
 
 
 
