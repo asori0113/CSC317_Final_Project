@@ -4,6 +4,7 @@
  */
 
 const User = require('../models/User');
+const Pin = require('../models/Pin');
 const Image = require('../models/Image');
 const upload = require('../middlewares/upload');
 
@@ -40,11 +41,13 @@ exports.getCreate = (req, res) => {
   });
 };
 
-exports.getHome = (req, res) => {
-  
+exports.getHome = async (req, res) => {
+  // not a great solution
+  let pins = await Pin.find();
   res.render('user/home', {
     title: 'Home',
     user: req.session.user,
+    pins:pins
   });
 };
 

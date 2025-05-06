@@ -8,5 +8,5 @@ const pinController = require('../controllers/pinController');
 
 router.post('/pin-post-creation', pinController.postCreate);
 
-router.get('/pin-image/:pin', pinController.getPinImage);
+router.get('/get-image/:pin', pinController.getPinImage);
 module.exports = router;

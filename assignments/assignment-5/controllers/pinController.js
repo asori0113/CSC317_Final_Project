@@ -86,10 +86,10 @@ exports.postCreate = async (req, res, next) => {
 exports.getPinImage = async (req, res, next) => {
     try {
         // Get user ID from params
-        const pin = req.params.pin;
+        const pinId = req.params.pin;
 
         // Find image in database
-        // const image = await Image.findOne({ userId: userId });
+        const pin = await Pin.findOne({_id: pinId});
 
         if (!pin  || !pin.data) {
             return res.status(404).send('Image not found');
@@ -103,21 +103,3 @@ exports.getPinImage = async (req, res, next) => {
     }
 };
 
-// exports.getPinImageTest = async (req, res, next) => {
-//     try {
-//         // Get user ID from params
-//         const pin = await Pin.findOne({ title: 'test'});
-//
-//         // Find image in database
-//
-//         if (!pin  || !pin.data) {
-//             return res.status(404).send('Image not found');
-//         }
-//
-//         // Set the content type header and send the image data
-//         res.set('Content-Type', pin.contentType);
-//         res.send(pin.data);
-//     } catch (error) {
-//         next(error);
-//     }
-// };
