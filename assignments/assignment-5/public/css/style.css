@@ -2,6 +2,7 @@
  * Global Styles and CSS Reset 
  */
 
+
 * {
   margin: 0;
   padding: 0;
@@ -91,7 +92,7 @@ header.general {
 }
 
 .nav-links a {
-  
+
   display: flex;
   justify-content: center;
   color: var(--text-color);
@@ -100,9 +101,10 @@ header.general {
   transition: color 0.3s;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--primary-color);
-  
+
 }
 
 .logo {
@@ -117,7 +119,8 @@ header.general {
 }
 
 li.button a {
-  font-size: 1rem; /* Adjust this size as needed */
+  font-size: 1rem;
+  /* Adjust this size as needed */
   padding: 1rem;
 }
 
@@ -168,7 +171,8 @@ footer {
 /* 
  * Form Elements 
  */
-.auth-form, .settings-container {
+.auth-form,
+.settings-container {
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
@@ -321,6 +325,7 @@ input:focus {
     transform: translateY(-20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -406,7 +411,8 @@ input:focus {
 /* 
  * About Page 
  */
-.about-section, .tech-stack {
+.about-section,
+.tech-stack {
   background-color: var(--white);
   padding: 2rem;
   border-radius: 8px;
@@ -419,7 +425,8 @@ input:focus {
   margin-bottom: 1.5rem;
 }
 
-.about-section ul, .tech-stack ul {
+.about-section ul,
+.tech-stack ul {
   padding-left: 1.5rem;
   margin: 1rem 0;
 }
@@ -505,14 +512,16 @@ input:focus {
   color: var(--text-light);
 }
 
-.profile-section, .settings-section {
+.profile-section,
+.settings-section {
   background-color: var(--white);
   border-radius: 8px;
   box-shadow: var(--shadow);
   padding: 2rem;
 }
 
-.profile-section h3, .settings-section h3 {
+.profile-section h3,
+.settings-section h3 {
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
@@ -586,34 +595,34 @@ details pre {
     flex-direction: column;
     padding: 1rem;
   }
-  
+
   .logo {
     margin-bottom: 1rem;
   }
-  
+
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .feature-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .profile-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .profile-avatar {
     margin-right: 0;
     margin-bottom: 1rem;
   }
-  
+
   .info-item {
     flex-direction: column;
   }
-  
+
   .info-item .label {
     margin-bottom: 0.5rem;
   }

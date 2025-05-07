@@ -6,7 +6,14 @@
 <% } %>
 
 
+<!-- Logged in: use class= container-auth which has a different style-->
+<!-- Use class=container when logged out-->
+<% if (!isAuthenticated) { %>
 <div class="container">
+<% } else { %>
+<div class="container-auth">
+<% } %>
+
   <div class="profile-container">
     <h1>User Profile</h1>
     
