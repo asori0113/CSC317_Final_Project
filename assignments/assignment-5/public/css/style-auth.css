@@ -3,6 +3,10 @@
 
 This file, like header-auth.ejs, is used by files in views/user. It will contain some duplicate styles since there are some "carry-over" code from header.ejs , but it should look more organized than putting everything in style.css
 
+TO DO
+1. Make nav bars fixed position (or sticky, idk) so that when you scroll down, they are always in their normal positions
+2. Make sure container about and profile is equally distant from top nav and sidebar (when logged in only, since its already good when logged out)
+
 */
 
 :root {
@@ -24,9 +28,16 @@ This file, like header-auth.ejs, is used by files in views/user. It will contain
     --padding-std: 0.5rem;
   }
 
+.container-auth {
+  max-width: 1200px;
+  position: relative;
+  top: 2rem;
+  left: 3rem;
+
+}
 
 header.auth {
-  position: fixed;
+  /*position: fixed; */
     background-color: var(--white);
     box-shadow: var(--shadow);
   }
@@ -46,7 +57,7 @@ header.auth {
     align-items: center;
     border-radius: 50px;
     background-color: var(--secondary-light);
-    width: 70vw;
+    width: 60vw;
     height: 50%;
     padding: var(--padding-std);
     margin-left: 5%;
@@ -124,14 +135,16 @@ header.auth {
 /*  Side nav bar */
 
 .sidebar {
-    position: fixed;
+/*    position: fixed;
     top: 5rem;
-    left: 1rem;
+    left: 1rem; */
     height: 70vh;
     background-color: var(--white);
     width: 9vw;
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
+    margin-left: 1rem;
  
 }
 
@@ -156,6 +169,9 @@ header.auth {
 
 .authed-nav-links a:hover, .authed-nav-links a.active {
     color: var(--primary-color);
+}
+
+.pin-grid {
 }
 
 @media (min-width: 768px) {

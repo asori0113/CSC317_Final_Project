@@ -104,7 +104,7 @@ exports.getPinImage = async (req, res, next) => {
         }
 
         // Set the content type header and send the image data
-        //res.set('Title', pin.title)
+        //res.set('Title', pin.title);
         res.set('Content-Type', pin.contentType);
         res.send(pin.data);
     } catch (error) {

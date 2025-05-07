@@ -1,21 +1,21 @@
 <%- include('../partials/header-auth') %>
 
-<!--PLACEHOLDER-->
+  <!--PLACEHOLDER-->
+  <div class="container-auth">
+    <div class="pin-grid">
 
-<div class="pin-grid">
-
-  <% pins.forEach((pin) => { %>
-    <img src="/pin/get-image/<%= pin._id %>" alt="<%= title%>">
-<% });%>
+      <% pins.forEach((pin)=> { %>
+        <img src="/pin/get-image/<%= pin._id %>" alt="<%= title%>">
+        <% });%>
 
 
 
-</div>
-
+    </div>
+  </div>
   <!-- 3 TEMP LINES TO EXPERIMENT W/ LAYOUT -->
 
-</main>
-</body>
+  </main>
+  </body>
 
-</html>
-<!--<%- include('../partials/footer') %>
+  </html>
+  <!--<%- include('../partials/footer') %>
