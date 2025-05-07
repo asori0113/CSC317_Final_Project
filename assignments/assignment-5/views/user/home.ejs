@@ -4,9 +4,11 @@
 
 <div class="pin-grid">
 
-<% pins.forEach((pin) => { %>
-    <img src="/pin/get-image/<%= pin._id %>" alt="pin picture">
+  <% pins.forEach((pin) => { %>
+    <img src="/pin/get-image/<%= pin._id %>" alt="<%= title%>">
 <% });%>
+
+
 
 </div>
 
