@@ -1,6 +1,6 @@
 /**
  * Image model
- * Defines the schema for storing user profile images
+ * Defines the schema for storing user pins
  */
 const mongoose = require('mongoose');
 
@@ -28,7 +28,15 @@ const PinSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+        index: true
+      }
+
 });
 
 module.exports = mongoose.model('Pin', PinSchema);
