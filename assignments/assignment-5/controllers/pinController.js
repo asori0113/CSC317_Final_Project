@@ -63,6 +63,14 @@ exports.postCreate = async (req, res, next) => {
                 // Save pin to database
                 await pin.save();
 
+                // Add pin to current users pins
+                const user = await User.findById(req.session.user.id);
+                if(user.pinList) {
+                    user.pinList.push(pin._id);
+                    console.log("pin added to users list")
+                    await user.save();
+                }
+
                 req.session.flashMessage = {
                     type: 'success',
                     text: 'Post created.'
