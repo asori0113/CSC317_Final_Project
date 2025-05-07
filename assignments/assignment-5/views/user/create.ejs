@@ -14,7 +14,7 @@
                 <label for="title">Title</label>
                 <input
                         type="text"
-                        id="username"
+                        id="title"
                         name= "title"
                         value="<%= typeof createPinData !== 'undefined' ? createPinData.title || '' : '' %>"
                         placeholder="Add a title"
@@ -24,12 +24,82 @@
                 <label for="description">Title</label>
                 <input
                         type="text"
-                        id="username"
+                        id="description"
                         name= "description"
                         value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
                         placeholder="Add a description"
                 >
             </div>
+
+            
+
+            <div class="form-group">
+                <label for="link">Link</label>
+                <input
+                        type="text"
+                        id="link"
+                        name= "link"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Add a link"
+                >
+            </div>
+
+            <!--Create board list and or add board to existing board-->
+            <div class="form-group">
+                <label for="board">Board</label>
+                <input
+                        type="text"
+                        id="board"
+                        name= "board"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Add to board"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="tag">Tagged-Topics</label>
+                <input
+                        type="text"
+                        id="tag"
+                        name= "tag"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Add a topics"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="allow_comments">Allow Comments</label>
+                <input
+                        type="button"
+                        id="allow_comments"
+                        name= "allow_comments"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Allow comments"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="show_similar">Show Similar Products</label>
+                <input
+                        type="button"
+                        id="show_similar"
+                        name= "show_similar"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="alt_text">Alt Text</label>
+                <input
+                        type="text"
+                        id="alt_text"
+                        name= "alt_text"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
+                        placeholder="Add a topics"
+                >
+            </div>
+            
+
 
             <div class="form-group">
                 <label for="pinImage">Profile Image</label>
