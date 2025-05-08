@@ -22,6 +22,27 @@
 <!--    <!--<%- include('../partials/footer') %> -->
 
 
+<!-- <%- include('../partials/header-auth') %> -->
+
+<!-- <!--Main Content Container  -->
+<!-- <div class="container-auth"> -->
+<!--   <div class="pin-grid"> -->
+<!--     <% pins.forEach((pin) => { %> -->
+<!--       <div class="pin-card"> -->
+<!--         <img -->
+<!--           src="/pin/get-image/<%= pin._id %>" -->
+<!--           alt="<%= pin.title || 'Pin Image' %>" -->
+<!--           title="<%= pin.title || 'Pin Image' %>" -->
+<!--         > -->
+<!--       </div> -->
+<!--     <% }); %> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<!-- </main> -->
+<!-- </body> -->
+<!-- </html> -->
+
 <%- include('../partials/header-auth') %>
 
 <!--Main Content Container  -->
@@ -29,11 +50,16 @@
   <div class="pin-grid">
     <% pins.forEach((pin) => { %>
       <div class="pin-card">
-        <img
-          src="/pin/get-image/<%= pin._id %>"
-          alt="<%= pin.title || 'Pin Image' %>"
-          title="<%= pin.title || 'Pin Image' %>"
-        >
+        <!-- Added: Wrapper around image and save button -->
+        <div class="pin-img-wrapper">
+          <button class="save-btn">Save</button>
+          <img
+            src="/pin/get-image/<%= pin._id %>"
+            alt="<%= pin.title || 'Pin Image' %>"
+            title="<%= pin.title || 'Pin Image' %>"
+            loading="lazy"
+          >
+        </div>
       </div>
     <% }); %>
   </div>
@@ -42,4 +68,3 @@
 </main>
 </body>
 </html>
-
