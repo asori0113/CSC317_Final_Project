@@ -10,7 +10,7 @@ const User = require("../models/User");
 
 
 /**
- * Process registration form submission
+ * Process creation form submission
  */
 
 exports.postCreate = async (req, res, next) => {
@@ -95,7 +95,7 @@ exports.getPinImage = async (req, res, next) => {
     try {
         // Get user ID from params
         const pinId = req.params.pin;
-
+        
         // Find image in database
         const pin = await Pin.findOne({_id: pinId});
 
