@@ -7,20 +7,21 @@
     <title>
         <%= title %> | CSC317Project - Group L
     </title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/style-auth.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     
-    <header class="header-auth">
+    <header class="auth">
             <nav class="topbar">
-                <div class="searchbar"> 
-                    <h2>I am a searchbar</h2>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
+                <ul class="top-nav-links">
+                    <li class="about"><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
                     <li><a href="/user/profile" class="<%= path === '/user/profile' ? 'active' : '' %>">Profile</a></li>
+                    <li class="hide"><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
+                    <li class="hide"><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
+                    <li class="settings"><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
+                    <li class="button"><a href="/auth/logout" id="button-logout">Logout</a></li>
                 </ul>
                 <div class="profile-avatar-top">
                     <% if (user.hasProfileImage) { %>
@@ -30,6 +31,10 @@
                       <span><%= user.username.charAt(0) %></span>
                     <% } %>
                   </div>
+                <div class="searchbar"> 
+                    
+                </div>
+                
             </nav>
     </header>
     <main>

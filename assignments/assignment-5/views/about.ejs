@@ -4,9 +4,13 @@
 <%- include('./partials/header') %>
 <% } %>
 
-
-
-<div class="container">
+<!-- Logged in: use class= container-auth which has a different style-->
+<!-- Use class=container when logged out-->
+<% if (!isAuthenticated) { %>
+  <div class="container">
+  <% } else { %>
+  <div class="container-auth">
+  <% } %>
   <div class="about-section">
     <h1>About This Application</h1>
     <p>This is a starter template for a web application with user authentication features. It demonstrates:</p>
