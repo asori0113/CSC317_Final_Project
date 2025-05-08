@@ -10,7 +10,7 @@ const User = require("../models/User");
 
 
 /**
- * Process registration form submission
+ * Process creation form submission
  */
 
 exports.postCreate = async (req, res, next) => {
@@ -44,7 +44,8 @@ exports.postCreate = async (req, res, next) => {
                     title: req.body.title,
                     description: req.body.description,
                     data: req.file.buffer,
-                    contentType: req.file.mimetype
+                    contentType: req.file.mimetype,
+                    userId: req.session.user.id
 
                     // TODO catch upload error
 
@@ -95,7 +96,7 @@ exports.getPinImage = async (req, res, next) => {
     try {
         // Get user ID from params
         const pinId = req.params.pin;
-
+        
         // Find image in database
         const pin = await Pin.findOne({_id: pinId});
 
