@@ -171,6 +171,44 @@ header.auth {
     column-gap: 1rem;
 }
 
+
+/* That is the Wrapper for image + save button */
+.pin-img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Save button that is hidden by default */
+.save-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, opacity 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show save button on hover */
+.pin-img-wrapper:hover .save-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.save-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+
+
 .pin-grid img {
     width: 100%;
     margin-bottom: 1rem;
@@ -218,6 +256,13 @@ header.auth {
     li.about, li.settings, div.searchbar, nav.sidebar, div.profile-avatar-top {
       display: none;
     }
+}
+
+.pin-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  break-inside: avoid;
 }
 
 .pin-card {
