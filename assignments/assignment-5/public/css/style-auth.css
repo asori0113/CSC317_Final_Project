@@ -5,7 +5,6 @@ This file, like header-auth.ejs, is used by files in views/user. It will contain
 
 TO DO
 1. Make nav bars fixed position (or sticky, idk) so that when you scroll down, they are always in their normal positions
-2. Make sure container about and profile is equally distant from top nav and sidebar (when logged in only, since its already good when logged out)
 
 */
 
@@ -31,8 +30,8 @@ TO DO
 .container-auth {
   max-width: 1200px;
   position: relative;
-  top: 2rem;
-  left: 3rem;
+  top: 3vh;
+  left: 1.5vw;
 
 }
 
@@ -190,6 +189,12 @@ header.auth {
     margin: 0;
     gap: 10px;
 
+  }
+
+  .container-auth {
+    max-width: 390;
+    position: relative;
+    top: 3vh;
   }
 
   /* Remove from display */
