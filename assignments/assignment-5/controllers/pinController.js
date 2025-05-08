@@ -44,7 +44,8 @@ exports.postCreate = async (req, res, next) => {
                     title: req.body.title,
                     description: req.body.description,
                     data: req.file.buffer,
-                    contentType: req.file.mimetype
+                    contentType: req.file.mimetype,
+                    userId: req.session.user.id
 
                     // TODO catch upload error
 
