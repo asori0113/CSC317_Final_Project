@@ -2,9 +2,11 @@
 
 <!--Main Content Container  -->
 <div class="container-auth">
+  <div class="pin-viewer">
+    
+  </div>
   <div class="pin-grid">
-    <% pins.forEach((pin) => { %>
-      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+      <div class="pin-card">
         <!-- Added: Wrapper around image and save button -->
         <div class="pin-img-wrapper">
           <button class="save-btn">Save</button>
@@ -15,8 +17,7 @@
             loading="lazy"
           >
         </div>
-      </a>
-    <% }); %>
+    </div>
   </div>
 </div>
 

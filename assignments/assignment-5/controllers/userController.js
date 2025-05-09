@@ -51,6 +51,8 @@ exports.getHome = async (req, res) => {
   });
 };
 
+
+
 /**
  * Update user settings
  */
