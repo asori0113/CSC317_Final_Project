@@ -70,6 +70,7 @@ header.general {
   display: flex;
   background-color: var(--white);
   box-shadow: var(--shadow);
+  font-weight: bold;
 }
 
 .navbar {
