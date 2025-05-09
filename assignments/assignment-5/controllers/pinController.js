@@ -21,7 +21,7 @@ exports.postCreate = async (req, res, next) => {
             return res.status(400).render('user/create', {
                 title: 'Create Pin',
                 // user: req.session.user,
-                errors: [{msg: err.message || 'File upload error'}]
+                errors: [{ msg: err.message || 'File upload error' }]
             });
         }
         try {
@@ -66,7 +66,7 @@ exports.postCreate = async (req, res, next) => {
 
                 // Add pin to current users pins
                 const user = await User.findById(req.session.user.id);
-                if(user.pinList) {
+                if (user.pinList) {
                     user.pinList.push(pin._id);
                     console.log("pin added to users list")
                     await user.save();
@@ -79,28 +79,23 @@ exports.postCreate = async (req, res, next) => {
                 res.redirect('/user/home');
 
             }
-        }catch
-            (error)
-            {
-                next(error);
-            }
-        });
-    };
+        } catch
+        (error) {
+            next(error);
+        }
+    });
+};
 
 
-/**
- * Get current user's profile image
- */
-// by index??
 exports.getPinImage = async (req, res, next) => {
     try {
-        // Get user ID from params
+        // Get pin ID from params
         const pinId = req.params.pin;
-        
-        // Find image in database
-        const pin = await Pin.findOne({_id: pinId});
 
-        if (!pin  || !pin.data) {
+        // Find image in database
+        const pin = await Pin.findOne({ _id: pinId });
+
+        if (!pin || !pin.data) {
             return res.status(404).send('Image not found');
         }
 
@@ -108,6 +103,26 @@ exports.getPinImage = async (req, res, next) => {
         //res.set('Title', pin.title);
         res.set('Content-Type', pin.contentType);
         res.send(pin.data);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// View a pin after clicking it
+exports.viewPin = async (req, res, next) => {
+    try {
+        //Find one pin with given id
+        const pin = await Pin.findOne({ _id: req.params.pin });
+        if (!pin || !pin.data) {
+            return res.status(404).send('Image not found');
+        }
+
+        res.render('pin/pinPage', {
+            title: 'Home',
+            user: req.session.user,
+            pin: pin
+        });
+
     } catch (error) {
         next(error);
     }

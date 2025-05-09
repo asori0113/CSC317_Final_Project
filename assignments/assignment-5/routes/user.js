@@ -35,4 +35,6 @@ router.get('/profile-image', userController.getProfileImage);
 // GET /user/profile-image/:userId - Get any user's profile image by ID
 router.get('/profile-image/:userId', userController.getUserProfileImage);
 
+
+
 module.exports = router;
