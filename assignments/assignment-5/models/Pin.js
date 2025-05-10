@@ -17,6 +17,10 @@ const PinSchema = new mongoose.Schema({
         // Removed index to avoid creation issues
         trim: true,
     },
+    tags: {
+        type: String,
+        required: false,
+    },
     data: {
         type: Buffer,
         required: true

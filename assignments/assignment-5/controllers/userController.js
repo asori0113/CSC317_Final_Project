@@ -42,8 +42,20 @@ exports.getCreate = (req, res) => {
 };
 
 exports.getHome = async (req, res) => {
-  // not a great solution
   let pins = await Pin.find();
+  res.render('user/home', {
+    title: 'Home',
+    user: req.session.user,
+    pins:pins
+  });
+};
+
+exports.getHomeFiltered = async (req, res) => {
+  const searchInput = req.query.searchbar.trim().split(" ").join("|");
+  // remove spaces and format in to a case insensitive regex
+  const searched = new RegExp(searchInput,"i");
+  let pins = await Pin.find({tags: searched});
+  // TODO throw error if pins is empty
   res.render('user/home', {
     title: 'Home',
     user: req.session.user,

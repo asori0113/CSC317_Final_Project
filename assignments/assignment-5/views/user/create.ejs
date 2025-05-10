@@ -15,6 +15,7 @@
                         id="pinImage"
                         name="pinImage"
                         accept="image/png, image/jpeg, image/gif"
+                        required
                 >
                 <div class="form-hint">Max size: 2MB. Formats: JPG, PNG, GIF</div>
             </div>
@@ -27,6 +28,7 @@
                         name= "title"
                         value="<%= typeof createPinData !== 'undefined' ? createPinData.title || '' : '' %>"
                         placeholder="Add a title"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -66,13 +68,13 @@
             </div>
             -->
             <div class="form-group">
-                <label for="tag">Tags</label>
+                <label for="tags">Tags</label>
                 <input
                         type="text"
-                        id="tag"
-                        name= "tag"
-                        value="<%= typeof createPinData !== 'undefined' ? createPinData.description || '' : '' %>"
-                        placeholder="Add a topics"
+                        id="tags"
+                        name= "tags"
+                        value="<%= typeof createPinData !== 'undefined' ? createPinData.tags || '' : '' %>"
+                        placeholder="Add topics seperated by a space"
                 >
             </div>
             <!--

@@ -33,7 +33,8 @@ exports.postCreate = async (req, res, next) => {
                     errors: errors.array(),
                     createPinData: {
                         title: req.body.title,
-                        description: req.body.description
+                        description: req.body.description,
+                        tags: req.body.tags.split(" ")
                     }
                 });
             }
@@ -44,6 +45,7 @@ exports.postCreate = async (req, res, next) => {
                     title: req.body.title,
                     description: req.body.description,
                     data: req.file.buffer,
+                    tags: req.body.tags,
                     contentType: req.file.mimetype,
                     userId: req.session.user.id
 

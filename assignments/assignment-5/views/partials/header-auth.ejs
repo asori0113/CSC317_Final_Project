@@ -23,8 +23,14 @@
                       <span><%= user.username.charAt(0) %></span>
                     <% } %>
                   </div>
-                <div class="searchbar"> 
-                    
+                <div class="searchbar">
+                    <form action="/user/home/search" method="GET">
+                    <input type="text"
+                           id="searchbar"
+                           name="searchbar"
+                           value="<%= typeof searchbar !== 'undefined' ? searchbar.searchInput || '' : '' %>"
+                    >
+                    </form>
                 </div>
                 <ul class="top-nav-links">
                     <li class="hide"><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
