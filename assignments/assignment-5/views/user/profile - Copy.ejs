@@ -3,6 +3,8 @@
 
 <div class="profile-main">
   <div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
         <div class="profile-avatar">
           <% if (user.hasProfileImage) { %>
             <img src="/user/profile-image" alt="Profile picture">
@@ -14,17 +16,21 @@
         <div class="profile-title">
           <h2><%= user.username %></h2>
         </div>
+      </div>
+      
+      <div class="profile-info">
         <div class="info-item">
+          <span class="label">Email Address:</span>
           <span class="value"><%= user.email %></span>
         </div>
-        <div class="profile-actions">
-        <a href="/user/saved-pins" class="btn secondary-btn">Created</a>
-        <a href="/user/created-pins" class="btn secondary-btn">Saved</a>
       </div>
+      
+      <div class="profile-actions">
+        <a href="/user/settings" class="btn secondary-btn">Edit Profile</a>
+      </div>
+    </div>
   </div>
 </div>
-
-
 
 </main>
 </body>
