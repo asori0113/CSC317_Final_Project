@@ -6,7 +6,6 @@
     --secondary-color: #dddddd;
     --secondary-dark: #acabab;
     --secondary-light: #f0f0f0;
-    --accent: #c94151;
     --text-color: #131313;
     --text-light: #313131;
     --background-color: #ececec;
@@ -126,8 +125,7 @@ header.auth {
     width: 7vw;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin: 2vh 0 2vh 1vw;
 }
 
 /* Added: Sticky sidebar  */
@@ -147,7 +145,12 @@ ul.authed-nav-links li {
 }
 
 ul.authed-nav-links li:hover {
-    background-color: var(--accent);
+    background-color: var(--secondary-color);
+}
+
+ul.authed-nav-links li:active {
+    background-color: var(--secondary-light) ;
+
 }
 li.logo img {
     height: 60px;
@@ -176,27 +179,22 @@ li.logo img {
 
 .authed-nav-links a:hover,
 .authed-nav-links a.active {
-    
+    color: var(--primary-dark);
 }
 
-.container-auth {
-  max-width: 1200px;
+.container-auth  {
+  margin: 2vh 2vw;
   position: relative;
-  top: 4vh;
-  left: 8vw;
 }
 
 .container-auth-other {
-  max-width: 1200px;
-  position: relative;
-  top: 2vh;
-  left: 20vw;
+    margin-top: 2vh;
+    margin-left: 32vw;
 }
-
 
 /* Added: Pinterest-style masonry grid  */
 .pin-grid {
-    column-count: 4;
+    column-count: 5;
     column-gap: 1rem;
 }
 
@@ -237,8 +235,6 @@ li.logo img {
 .save-btn:hover {
     background-color: var(--primary-dark);
 }
-
-
 
 .pin-grid img {
     width: 100%;

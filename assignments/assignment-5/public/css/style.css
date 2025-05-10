@@ -175,7 +175,6 @@ footer {
 .auth-form,
 .settings-container {
   max-width: 500px;
-  margin: 2rem auto;
   padding: 2rem;
   background-color: var(--white);
   border-radius: 8px;
@@ -627,4 +626,8 @@ details pre {
   .info-item .label {
     margin-bottom: 0.5rem;
   }
+
+  .container {
+  margin: 2rem;
+}
 }
