@@ -20,8 +20,9 @@
       <nav class="navbar">
         <ul class="nav-links">
 
-          <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
+          
               <li><a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a></li>
+              <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
               <li class="button"><a href="/auth/login" class="{{#if (isActiveRoute path '/auth/login')}}active{{/if}}"
                   id="button-login">Login</a></li>
               <li class="button"><a href="/auth/register"
