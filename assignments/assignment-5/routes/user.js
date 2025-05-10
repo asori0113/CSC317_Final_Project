@@ -24,7 +24,7 @@ router.get('/settings', userController.getSettings);
 router.get('/home', userController.getHome);
 
 // GET /user/settings - User home page
-router.get('/home/:searchInput', userController.getHomeFiltered);
+router.get('/home/search', userController.getHomeFiltered);
 
 // GET /user/settings - User create page
 router.get('/create', userController.getCreate);
