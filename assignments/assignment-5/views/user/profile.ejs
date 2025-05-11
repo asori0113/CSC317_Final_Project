@@ -1,30 +1,66 @@
 
 <%- include('../partials/header-auth') %>
-
 <div class="profile-main">
   <div class="profile-container">
-        <div class="profile-avatar">
-          <% if (user.hasProfileImage) { %>
-            <img src="/user/profile-image" alt="Profile picture">
+    <div class="profile-info">
+      <div class="profile-avatar">
+        <% if (user.hasProfileImage) { %>
+          <img src="/user/profile-image" alt="Profile picture">
           <% } else { %>
             <!-- Display first letter of username as avatar -->
-            <span><%= user.username.charAt(0) %></span>
-          <% } %>
-        </div>
-        <div class="profile-title">
-          <h2><%= user.username %></h2>
-        </div>
-        <div class="info-item">
-          <span class="value"><%= user.email %></span>
-        </div>
-        <div class="profile-actions">
-        <a href="/user/saved-pins" class="btn secondary-btn">Created</a>
-        <a href="/user/created-pins" class="btn secondary-btn">Saved</a>
+            <span>
+              <%= user.username.charAt(0) %>
+            </span>
+            <% } %>
       </div>
+      <div class="profile-title">
+        <h2>
+          <%= user.username %>
+        </h2>
+      </div>
+      <div class="info-item">
+        <span class="value">
+          <%= user.email %>
+        </span>
+      </div>
+      <div class="profile-actions">
+        <button onclick="activateCreated()" class="btn-created">Created</a>
+          <button onclick="activateSaved()" class="btn-saved">Saved</a>
+      </div>
+    </div>
+    <div class="pin-display">
+    <div class="pin-grid" id="created-pins">
+      <% pins.forEach((pin) => { %>
+      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+        <!-- Added: Wrapper around image and save button -->
+        <div class="pin-img-wrapper">
+          <button class="save-btn">Save</button>
+          <img
+            src="/pin/get-image/<%= pin._id %>"
+            alt="<%= pin.title || 'Pin Image' %>"
+            title="<%= pin.title || 'Pin Image' %>"
+            loading="lazy"
+          >
+        </div>
+      </a>
+    <% }); %>
+    </div>
+    <div class="pin-grid" id="saved-pins">
+     <!-- Just copy code from created-pins. This is empty for now since website crashes with an incomplete implementation -->
+    </div>
   </div>
 </div>
 
-
+  <script>
+    function activateCreated() {
+      document.getElementById('saved-pins').style.display = 'none';
+      document.getElementById('created-pins').style.display = 'block';
+    }
+    function activateSaved() {
+      document.getElementById('saved-pins').style.display = 'block';
+      document.getElementById('created-pins').style.display = 'none';
+    }
+  </script>
 
 </main>
 </body>
