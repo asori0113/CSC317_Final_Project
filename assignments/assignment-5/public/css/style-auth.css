@@ -1,4 +1,3 @@
-
 :root {
     --primary-color: #b40808;
     --primary-dark: #8a1313;
@@ -41,16 +40,22 @@ header.auth {
     width: fit-content;
 }
 
-.searchbar {
+.searchbar-container {
     display: flex;
     align-items: center;
-    border-radius: 50px;
-    background-color: var(--secondary-light);
     width: 60vw;
     height: 50%;
-    padding: var(--padding-std);
     margin-left: 3vw;
     margin-right: 12vw;
+}
+
+#searchbar {
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-light);
+    box-shadow: none;
+    border-radius: 50px;
+    padding: 1rem;
+
 }
 
 .top-nav-links {
@@ -150,9 +155,10 @@ ul.authed-nav-links li:hover {
 }
 
 ul.authed-nav-links li:active {
-    background-color: var(--secondary-light) ;
+    background-color: var(--secondary-light);
 
 }
+
 li.logo img {
     height: 60px;
     width: 60px;
@@ -183,9 +189,9 @@ li.logo img {
     color: var(--primary-dark);
 }
 
-.container-auth  {
-  margin: 2vh 2vw;
-  
+.container-auth {
+    margin: 2vh 2vw;
+
 }
 
 .container-auth-other {
@@ -200,10 +206,10 @@ li.logo img {
 }
 
 .pin-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    break-inside: avoid;
 }
 
 .pin-grid img {
@@ -212,7 +218,7 @@ li.logo img {
     border-radius: 1rem;
     box-shadow: var(--shadow);
     break-inside: avoid;
-   transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 
@@ -253,8 +259,6 @@ li.logo img {
     background-color: var(--primary-dark);
 }
 
-
-
 /*.pin-grid img:hover {
     transform: scale(1.50);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -264,11 +268,14 @@ li.logo img {
 /* Profile Page */
 
 .profile-main {
-  flex: 1;
-  margin: 2vh 2vw;
+    flex: 1;
 }
 
 .profile-container {
+    margin: 2vh 2vw;
+}
+
+.profile-info {
     background-color: var(--white);
     display: flex;
     flex-direction: column;
@@ -280,40 +287,79 @@ li.logo img {
 }
 
 .profile-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .profile-avatar span {
-  font-size: 2rem;
-  color: var(--white);
-  text-transform: uppercase;
+    font-size: 2rem;
+    color: var(--white);
+    text-transform: uppercase;
 }
 
 .profile-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profile-title {
-  color: var(--text-light);
-  font-size: 0.9rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.btn-saved, .btn-created {
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-dark);
+}
+
+.btn-saved:hover, .btn-created:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-saved:active, .btn-created:active {
+    background-color: var(--secondary-light);
+}
+
+#created-pins, #saved-pins {
+    display: none;
 }
 
 
+
+@keyframes x-slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes y-slide-in {
+    from {
+        transform: translateY(-200%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
 /* Added: Responsive column layout  */
 @media (min-width: 1025px) {
-  li.hide {
-    display:none;
-  }
-  
+    li.hide {
+        display: none;
+    }
+
 }
 
 @media (max-width:1280px) {
@@ -328,7 +374,7 @@ li.logo img {
     .pin-grid {
         column-count: 3;
     }
-    
+
     .container-auth {
         top: 0;
         left: 0;
@@ -340,18 +386,24 @@ li.logo img {
         display: flex;
         justify-content: center;
     }
+
     .container-auth {
         top: 0;
         left: 0;
         margin: 2rem 2rem 2rem;
     }
+
     .top-nav-links {
         margin: 0;
         gap: 10px;
     }
 
-    li.about, li.settings, div.searchbar, nav.sidebar, div.profile-avatar-top {
-      display: none;
+    li.about,
+    li.settings,
+    div.searchbar,
+    nav.sidebar,
+    div.profile-avatar-top {
+        display: none;
     }
 }
 
@@ -359,13 +411,8 @@ li.logo img {
     .container-auth {
         margin: 1rem 2rem 2rem;
     }
+
     .pin-grid {
         column-count: 2;
     }
 }
-
-
-
-
-
-  
