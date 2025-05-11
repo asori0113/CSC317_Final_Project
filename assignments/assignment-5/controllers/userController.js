@@ -11,14 +11,15 @@ const upload = require('../middlewares/upload');
 /**
  * Display user profile page
  */
-exports.getProfile = (req, res) => {
+exports.getProfile = async (req, res) => {
   // Add hasProfileImage flag to user object
   const user = {...req.session.user};
   user.hasProfileImage = user.hasProfileImage || false;
-  
+  let   pins = await Pin.find({userId: req.session.user.id});
   res.render('user/profile', {
     title: 'Profile',
-    user: user
+    user: user,
+    pins:pins
   });
 };
 

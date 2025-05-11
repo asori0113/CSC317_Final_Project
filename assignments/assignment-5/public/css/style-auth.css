@@ -15,6 +15,7 @@
     --white: #fff;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --padding-std: 0.5rem;
+    --top-margin: 2vh;
 }
 
 /*  Added: Pinterest-style spacing for sticky navs   ( side boders ) */
@@ -194,10 +195,7 @@ li.logo img {
 
 }
 
-.container-auth-other {
-    margin-top: 2vh;
-    margin-left: 20vw;
-}
+
 
 /* Added: Pinterest-style masonry grid  */
 .pin-grid {
@@ -332,6 +330,114 @@ li.logo img {
     display: none;
 }
 
+/* Settings */
+
+.main-settings-container {
+    flex: 1;
+    margin-top: 2vh;
+    margin-left: 32vw;
+
+}
+
+/* Create form */
+
+.create-container {
+    flex: 1;
+    margin-top: 2vh;
+    margin-left: 25vw;
+}
+
+.create-form {
+  max-width: 800px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* Other styles for settings and profile */
+
+
+.profile-section,
+.settings-section {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.profile-section h3,
+.settings-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.profile-section p {
+  margin-bottom: 1rem;
+}
+
+.settings-section ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+
+/* 
+ * Form Elements 
+ */
+ 
+.auth-form,
+.settings-container {
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
 
 
 @keyframes x-slide-in {

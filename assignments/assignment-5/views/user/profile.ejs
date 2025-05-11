@@ -31,36 +31,22 @@
     <div class="pin-display">
     <div class="pin-grid" id="created-pins">
       <% pins.forEach((pin) => { %>
-        <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
-          <!-- Added: Wrapper around image and save button -->
-          <div class="pin-img-wrapper">
-            <button class="save-btn">Save</button>
-            <img
-              src="/pin/get-image/<%= pin._id %>"
-              alt="<%= pin.title || 'Pin Image' %>"
-              title="<%= pin.title || 'Pin Image' %>"
-              loading="lazy"
-            >
-          </div>
-        </a>
-      <% }); %>
+      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+        <!-- Added: Wrapper around image and save button -->
+        <div class="pin-img-wrapper">
+          <button class="save-btn">Save</button>
+          <img
+            src="/pin/get-image/<%= pin._id %>"
+            alt="<%= pin.title || 'Pin Image' %>"
+            title="<%= pin.title || 'Pin Image' %>"
+            loading="lazy"
+          >
+        </div>
+      </a>
+    <% }); %>
     </div>
-      <div class="pin-grid" id="saved-pins">
-        <% pins.forEach((pin) => { %>
-        <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
-          <!-- Added: Wrapper around image and save button -->
-          <div class="pin-img-wrapper">
-            <button class="save-btn">Save</button>
-            <img
-              src="/pin/get-image/<%= pin._id %>"
-              alt="<%= pin.title || 'Pin Image' %>"
-              title="<%= pin.title || 'Pin Image' %>"
-              loading="lazy"
-            >
-          </div>
-        </a>
-      <% }); %>
-      </div>
+    <div class="pin-grid" id="saved-pins">
+     <!-- Just copy code from created-pins. This is empty for now since website crashes with an incomplete implementation -->
     </div>
   </div>
 </div>
