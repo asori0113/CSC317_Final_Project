@@ -111,6 +111,7 @@ exports.getPinImage = async (req, res, next) => {
 };
 
 // View a pin after clicking it
+
 exports.viewPin = async (req, res, next) => {
     try {
         //Find one pin with given id
@@ -130,3 +131,25 @@ exports.viewPin = async (req, res, next) => {
     }
 };
 
+exports.viewPin = async (req, res, next) => {
+    try {
+        const pin = await Pin.findOne({ _id: req.params.pin });
+
+        if (!pin || !pin.data) {
+            return res.status(404).send('Image not found');
+        }
+
+        const pinOwner = await User.findById(pin.userId).lean();
+
+        res.render('pin/pinPage', {
+            title: 'Pin Detail',
+            user: req.session.user,       // That is for the logged  in user for the header
+            pinOwner: pinOwner,           // This will the creator of the pin
+            pin: pin
+        });
+    } catch (error) {
+        next(error);
+    }
+
+
+};
