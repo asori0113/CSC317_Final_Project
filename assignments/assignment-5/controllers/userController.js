@@ -15,8 +15,6 @@ exports.getProfile = async (req, res) => {
   // Add hasProfileImage flag to user object
   const user = {...req.session.user};
   user.hasProfileImage = user.hasProfileImage || false;
-  console.log('pinList:');
-  console.log('pinList:', user.pinList);
   let   pins = await Pin.find({userId: req.session.user.id});
   let   savedPins = await Pin.find({_id: {$in: req.session.user.pinList}});
   res.render('user/profile', {
