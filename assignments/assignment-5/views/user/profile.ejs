@@ -24,8 +24,8 @@
         </span>
       </div>
       <div class="profile-actions">
-        <button onclick="activateCreated()" class="btn-created">Created</a>
-          <button onclick="activateSaved()" class="btn-saved">Saved</a>
+        <button onclick="activateCreated()" class="btn-created">Created</button>
+          <button onclick="activateSaved()" class="btn-saved">Saved</button>
       </div>
     </div>
     <div class="pin-display">
@@ -46,7 +46,22 @@
     <% }); %>
     </div>
     <div class="pin-grid" id="saved-pins">
+      <% savedPins.forEach((pin) => { %>
+        <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+          <!-- Added: Wrapper around image and save button -->
+          <div class="pin-img-wrapper">
+            <button class="save-btn">Save</button>
+            <img
+                    src="/pin/get-image/<%= pin._id %>"
+                    alt="<%= pin.title || 'Pin Image' %>"
+                    title="<%= pin.title || 'Pin Image' %>"
+                    loading="lazy"
+            >
+          </div>
+        </a>
+      <% }); %>
      <!-- Just copy code from created-pins. This is empty for now since website crashes with an incomplete implementation -->
+
     </div>
   </div>
 </div>

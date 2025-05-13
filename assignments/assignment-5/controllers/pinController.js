@@ -97,6 +97,7 @@ exports.savePin = async (req, res, next) => {
         user.pinList.push(pin._id);
         console.log("pin added to users list")
         await user.save();
+        req.session.user.pinList = user.pinList;
     }
     res.redirect('/user/home');
 };
