@@ -1,6 +1,9 @@
-
-<%- include('./partials/header') %>
-
+<% if (!isAuthenticated) { %>
+  <%- include('./partials/header') %>
+  
+<% } else { %>
+    <%- include('./partials/header-auth') %>
+<% } %>
 <!-- Logged in: use class= container-auth which has a different style-->
 <!-- Use class=container when logged out-->
   <div class="container">
