@@ -1,4 +1,5 @@
 :root {
+
    --primary-color: #b40808;
    --primary-dark: #8a1313;
    --primary-light: #fa2323;
@@ -15,6 +16,7 @@
    --white: #fff;
    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    --padding-std: 0.5rem;
+
 }
 
 
@@ -46,6 +48,7 @@ header.auth {
 }
 
 
+
 .searchbar {
    display: flex;
    align-items: center;
@@ -57,6 +60,7 @@ header.auth {
    margin-left: 3vw;
    margin-right: 12vw;
 }
+
 
 
 .top-nav-links {
@@ -145,10 +149,13 @@ header.auth {
 }
 
 
+
 /* Added: Sticky sidebar  */
 
 
+
 .sidebar {
+
    position: sticky;
 }
 
@@ -172,10 +179,12 @@ ul.authed-nav-links li:hover {
 
 
 ul.authed-nav-links li:active {
+
    background-color: var(--secondary-light) ;
 
 
 }
+
 li.logo img {
    height: 60px;
    width: 60px;
@@ -211,6 +220,7 @@ li.logo img {
 }
 
 
+
 .container-auth  {
  margin: 2vh 2vw;
 
@@ -224,6 +234,7 @@ li.logo img {
 }
 
 
+
 /* Added: Pinterest-style masonry grid  */
 .pin-grid {
    column-count: 5;
@@ -232,20 +243,24 @@ li.logo img {
 
 
 .pin-card {
+
  position: relative;
  overflow: hidden;
  border-radius: 1rem;
  break-inside: avoid;
+
 }
 
 
 .pin-grid img {
+
    width: 100%;
    margin-bottom: 1rem;
    border-radius: 1rem;
    box-shadow: var(--shadow);
    break-inside: avoid;
   transition: transform 0.3s ease;
+
 }
 
 
@@ -296,6 +311,7 @@ li.logo img {
 
 
 
+
 /*.pin-grid img:hover {
    transform: scale(1.50);
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -307,12 +323,15 @@ li.logo img {
 
 
 .profile-main {
+
  flex: 1;
  margin: 2vh 2vw;
+
 }
 
 
 .profile-container {
+
    background-color: var(--white);
    display: flex;
    flex-direction: column;
@@ -321,10 +340,12 @@ li.logo img {
    margin: 0 15vw 0 15vw;
    border-radius: 20px;
    padding: 1rem;
+
 }
 
 
 .profile-avatar {
+
  width: 100px;
  height: 100px;
  border-radius: 50%;
@@ -333,27 +354,91 @@ li.logo img {
  align-items: center;
  justify-content: center;
  overflow: hidden;
+
 }
 
 
 .profile-avatar span {
+
  font-size: 2rem;
  color: var(--white);
  text-transform: uppercase;
+
 }
 
 
 .profile-avatar img {
+
  width: 100%;
  height: 100%;
  object-fit: cover;
+
 }
 
 
 .profile-title {
+
  color: var(--text-light);
  font-size: 0.9rem;
+
 }
+
+#created-pins, #saved-pins {
+    display: none;
+}
+
+/* Settings */
+
+.main-settings-container {
+    flex: 1;
+    margin-top: 2vh;
+    margin-left: 32vw;
+
+}
+
+/* Create form */
+
+.create-container {
+    flex: 1;
+    margin-top: 2vh;
+    margin-left: 25vw;
+}
+
+.create-form {
+  max-width: 800px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* Other styles for settings and profile */
+
+
+.profile-section,
+.settings-section {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.profile-section h3,
+.settings-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.profile-section p {
+  margin-bottom: 1rem;
+}
+
+.settings-section ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* Added: Responsive layout  */
 
 
 
@@ -369,6 +454,7 @@ li.logo img {
 
 
 @media (max-width:1280px) {
+
    .searchbar {
        margin-right: 3vw;
    }
@@ -390,7 +476,23 @@ li.logo img {
    }
 
 
+
+    footer.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .searchbar-footer {
+        position: fixed;
+        flex: 1;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+}
 @media (max-width: 1024px) {
+
    header.auth {
        display: flex;
        justify-content: center;
@@ -409,10 +511,11 @@ li.logo img {
    li.about, li.settings, div.searchbar, nav.sidebar, div.profile-avatar-top {
      display: none;
    }
-}
+
 
 
 @media (max-width: 480px) {
+
    .container-auth {
        margin: 1rem 2rem 2rem;
    }
@@ -425,3 +528,4 @@ li.logo img {
 
 
   
+

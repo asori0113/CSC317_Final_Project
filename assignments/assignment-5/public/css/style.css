@@ -170,62 +170,6 @@ footer {
 }
 
 /* 
- * Form Elements 
- */
-.auth-form,
-.settings-container {
-  max-width: 500px;
-  padding: 2rem;
-  background-color: var(--white);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"] {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-.form-hint {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-top: 0.25rem;
-}
-
-.form-actions {
-  margin-top: 2rem;
-}
-
-.form-footer {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-}
-
-/* 
  * Buttons 
  */
 .btn {
@@ -411,7 +355,7 @@ input:focus {
 /* 
  * About Page 
  */
-.about-section,
+.about-section, .about-project,
 .tech-stack {
   background-color: var(--white);
   padding: 2rem;
@@ -420,16 +364,22 @@ input:focus {
   margin-bottom: 2rem;
 }
 
-.about-section h1 {
+.about-section h1, .about-project h1 {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
 }
 
-.about-section ul,
+.about-section ul, .about-project ul,
 .tech-stack ul {
   padding-left: 1.5rem;
   margin: 1rem 0;
 }
+
+.about-project h3 {
+  color: var(--primary-color);
+  margin-top: 1rem;
+}
+
 
 .tech-stack h2 {
   color: var(--primary-color);
@@ -450,29 +400,6 @@ input:focus {
 .info-item .label {
   font-weight: 500;
   color: var(--text-light);
-}
-
-.profile-section,
-.settings-section {
-  background-color: var(--white);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  padding: 2rem;
-}
-
-.profile-section h3,
-.settings-section h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.profile-section p {
-  margin-bottom: 1rem;
-}
-
-.settings-section ul {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
 }
 
 /* 
@@ -525,6 +452,63 @@ details pre {
   overflow-x: auto;
   white-space: pre-wrap;
   font-size: 0.9rem;
+}
+
+/* 
+ * Form Elements 
+ */
+ 
+.auth-form,
+.settings-container {
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
 }
 
 /* 

@@ -1,14 +1,8 @@
-<% if (isAuthenticated) { %>
-  <%- include('../partials/header-auth') %>
-<% } else { %>
-  <%- include('../partials/header') %>
-<% } %>
 
-<% if (!isAuthenticated) { %>
-  <div class="container">
-  <% } else { %>
-  <div class="container-auth-other">
-  <% } %>
+  <%- include('../partials/header-auth') %>
+
+
+  <div class="main-settings-container">
   <div class="settings-container">
     <h1>Account Settings</h1>
     

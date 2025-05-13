@@ -127,7 +127,8 @@ exports.postLogin = async (req, res, next) => {
       id: user._id,
       username: user.username,
       email: user.email,
-      hasProfileImage: user.hasProfileImage
+      hasProfileImage: user.hasProfileImage,
+      pinList: user.pinList
     };
     
     // Save session explicitly to ensure it's stored

@@ -23,18 +23,19 @@
                       <span><%= user.username.charAt(0) %></span>
                     <% } %>
                   </div>
-                <div class="searchbar">
-                    <form action="/user/home/search" method="GET">
+                
+                    <form class ="searchbar-container" action="/user/home/search" method="GET">
                     <input type="text"
                            id="searchbar"
                            name="searchbar"
                            value="<%= typeof searchbar !== 'undefined' ? searchbar.searchInput || '' : '' %>"
+                           placeholder="Enter tags separated by spaces"
                     >
                     </form>
-                </div>
+                
                 <ul class="top-nav-links">
-                    <li class="hide"><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
-                    <li class="hide"><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
+                    <li class="home"><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
+                    <li class="create"><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
                     <li class="settings"><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
                     <li><a href="/user/profile" class="<%= path === '/user/profile' ? 'active' : '' %>">Profile</a></li>
                     <li class="button"><a href="/auth/logout" id="button-logout">Logout</a></li>
@@ -47,7 +48,6 @@
     <main>
     <nav class="sidebar">
         <ul class="authed-nav-links">
-             <li class="about"><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
             <!--<li class="logo"><a href="../user/home"><img name="logo" src="/images/stockphoto-1135090585-1024x1024.jpg" alt="logo"></a></li>-->
             <li><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
             <li><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
