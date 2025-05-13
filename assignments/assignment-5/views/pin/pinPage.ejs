@@ -1,26 +1,55 @@
 <%- include('../partials/header-auth') %>
-
-<!--Main Content Container  -->
 <div class="container-auth">
-  <div class="pin-viewer">
-    
-  </div>
-  <div class="pin-grid">
-      <div class="pin-card">
-        <!-- Added: Wrapper around image and save button -->
-        <div class="pin-img-wrapper">
-          <button class="save-btn">Save</button>
-          <img
-            src="/pin/get-image/<%= pin._id %>"
-            alt="<%= pin.title || 'Pin Image' %>"
-            title="<%= pin.title || 'Pin Image' %>"
-            loading="lazy"
-          >
-        </div>
-    </div>
-  </div>
-</div>
+ <div class="pin-grid">
+   <div class="pin-card" style="width: 100%; max-width: 600px; margin: auto; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: black ; padding: 2rem;">
 
-</main>
-</body>
-</html>
+
+     <!--  This will centered image with max width and rounded corners -->
+     <div class="pin-img-wrapper" style="text-align: center;">
+       <img
+         src="/pin/get-image/<%= pin._id %>"
+         alt="<%= pin.title || 'Pin Image' %>"
+         title="<%= pin.title || 'Pin Image' %>"
+         style="display: inline-block; width: 250px; border-radius: 1rem;"
+       >
+     </div>
+
+
+     <div style="margin-top: 1rem; text-align: center;">
+       <!--  Hyperlinked title -->
+       <h2 style="font-weight: 600;">
+         <a href="<%= pin.title.startsWith('http') ? pin.title : '#' %>" target="_blank" style="text-decoration: none; color: white;">
+           <%= pin.title %>
+         </a>
+       </h2>
+
+
+       <!--  Pin description -->
+       <p style="color: white;"><strong>Description:</strong> <%= pin.description || 'No description provided.' %></p>
+
+
+       <!--  Pin owner -->
+       <p style="color: white;"><strong>Posted by:</strong> <%= pinOwner?.username || 'Anonymous' %></p>
+
+
+       <!--  Action buttons -->
+       <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
+         <button class="save-btn">Save to Board</button>
+         <button class="save-btn">Save to Profile</button>
+       </div>
+
+
+       <!--  Back button -->
+       <div style="margin-top: 1.5rem;">
+         <a href="/user/home" style="text-decoration: none;">
+           <button style="background-color: var(--primary-color); color: white ; padding: 0.5rem 1.25rem; border: none; border-radius: 1rem;">
+             ← Back to Home
+           </button>
+         </a>
+       </div>
+     </div>
+
+
+   </div>
+ </div>
+</div>

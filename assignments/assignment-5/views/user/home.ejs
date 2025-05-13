@@ -1,26 +1,28 @@
 <%- include('../partials/header-auth') %>
 
+
 <!--Main Content Container  -->
 <div class="container-auth">
-  <div class="pin-grid">
-    <% pins.forEach((pin) => { %>
-      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
-        <!-- Added: Wrapper around image and save button -->
-        <div class="pin-img-wrapper">
-            <form action="/pin/pin-save/<%= pin._id %>" method ="POST">
-                <button class="save-btn">Save</button>
-            </form>
-          <img
 
-            src="/pin/get-image/<%= pin._id %>"
-            alt="<%= pin.title || 'Pin Image' %>"
-            title="<%= pin.title || 'Pin Image' %>"
-            loading="lazy"
-          >
-        </div>
-      </a>
-    <% }); %>
-  </div>
+ <div class="pin-grid">
+   <% pins.forEach((pin) => { %>
+     <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+       <!-- Added: Wrapper around image and save button -->
+       <div class="pin-img-wrapper">
+         <button class="save-btn">Save</button>
+         <img
+           src="/pin/get-image/<%= pin._id %>"
+           alt="<%= pin.title || 'Pin Image' %>"
+           title="<%= pin.title || 'Pin Image' %>"
+           loading="lazy"
+         >
+       </div>
+     </a>
+   <% }); %>
+ </div>
 </div>
 
-<%- include('../partials/responsive-searchbar') %>
+
+</main>
+</body>
+</html>

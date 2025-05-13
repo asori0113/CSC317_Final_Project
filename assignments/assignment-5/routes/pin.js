@@ -19,3 +19,5 @@ router.get('/get-image/:pin', pinController.getPinImage);
 router.get('/pinPage/:pin', pinController.viewPin);
 
 module.exports = router;
+
+
