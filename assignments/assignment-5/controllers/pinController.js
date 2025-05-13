@@ -155,11 +155,20 @@ exports.viewPin = async (req, res, next) => {
 
        const pinOwner = await User.findById(pin.userId).lean();
 
+       const formattedTags = pin.tags.trim().split(" ").join("|");
+
+       // remove spaces and format in to a case insensitive regex
+       const related = new RegExp(formattedTags,"i");
+
+       // don't include the featured pin
+       let pins = await Pin.find({tags: related, _id: { $ne: pin._id}} );
+       // TODO throw error if pins is empty
        res.render('pin/pinPage', {
            title: 'Pin Detail',
            user: req.session.user,       // That is for the logged  in user for the header
            pinOwner: pinOwner,           // This will the creator of the pin
-           pin: pin
+           pin: pin,
+           pins: pins
        });
    } catch (error) {
        next(error);
