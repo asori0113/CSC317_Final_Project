@@ -34,9 +34,9 @@
                     </form>
                 
                 <ul class="top-nav-links">
+                    <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
                     <li class="home"><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
                     <li class="create"><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
-                    <li class="settings"><a href="/user/settings" class="<%= path === '/user/settings' ? 'active' : '' %>">Settings</a></li>
                     <li><a href="/user/profile" class="<%= path === '/user/profile' ? 'active' : '' %>">Profile</a></li>
                     <li class="button"><a href="/auth/logout" id="button-logout">Logout</a></li>
                     
@@ -51,6 +51,11 @@
             <!--<li class="logo"><a href="../user/home"><img name="logo" src="/images/stockphoto-1135090585-1024x1024.jpg" alt="logo"></a></li>-->
             <li><a href="/user/home" class="<%= path === '/user/home' ? 'active' : '' %>">Home</a></li>
             <li><a href="/user/create" class="<%= path === '/user/create' ? 'active' : '' %>">Create</a></li>
+            <li class="sidebar-settings">
+                <a href="/user/settings">
+                <img src="/images/gear.png" alt="settings">
+                </a>
+            </li>
         </ul>
     </nav>
     
