@@ -3,14 +3,10 @@
 * Handles logic for pin-related pages and actions
 */
 
-
 const Pin = require('../models/Pin');
 const upload = require('../middlewares/upload');
 const { validationResult } = require('express-validator');
 const User = require("../models/User");
-
-
-
 
 /**
 * Process creation form submission
@@ -18,7 +14,6 @@ const User = require("../models/User");
 
 
 exports.postCreate = async (req, res, next) => {
-
 
    upload.single('pinImage')(req, res, async (err) => {
        if (err) {
@@ -47,35 +42,16 @@ exports.postCreate = async (req, res, next) => {
                // Create new pin
                const pin = new Pin({
 
-
                    title: req.body.title,
                    description: req.body.description,
                    data: req.file.buffer,
                    tags: req.body.tags,
                    contentType: req.file.mimetype,
                    userId: req.session.user.id
-
-
-                   // TODO catch upload error
-
-
-                   //     try{
-                   // } catch (imageError) {
-                   //     console.error('Error handling profile image:', imageError);
-                   //     // return res.status(500).render('user/settings', {
-                   //     //     title: 'Settings',
-                   //     //     user: req.session.user,
-                   //         errors: [{ msg: 'Error saving profile image' }]
-                   //     });
-                   // }
-
-
                });
-
 
                // Save pin to database
                await pin.save();
-
 
                // Add pin to current users pins
                const user = await User.findById(req.session.user.id);
@@ -85,14 +61,12 @@ exports.postCreate = async (req, res, next) => {
                    await user.save();
                }
 
-
                req.session.flashMessage = {
                    type: 'success',
                    text: 'Post created.'
                };
+
                res.redirect('/user/home');
-
-
            }
        } catch
        (error) {
@@ -101,21 +75,24 @@ exports.postCreate = async (req, res, next) => {
    });
 };
 
+
 exports.savePin = async (req, res, next) => {
 
     const pin = await Pin.findOne({ _id: req.params.pin });
-    // Add pin to current users pins
     const user = await User.findById(req.session.user.id);
+
+    // Add pin to current users pins
     if (user.pinList) {
         user.pinList.push(pin._id);
         console.log("pin added to users list")
         await user.save();
+
+        // also add to session
         req.session.user.pinList = user.pinList;
+        req.session.save();
     }
     res.redirect('/user/home');
 };
-
-
 
 
 exports.getPinImage = async (req, res, next) => {
@@ -172,14 +149,11 @@ exports.viewPin = async (req, res, next) => {
    try {
        const pin = await Pin.findOne({ _id: req.params.pin });
 
-
        if (!pin || !pin.data) {
            return res.status(404).send('Image not found');
        }
 
-
        const pinOwner = await User.findById(pin.userId).lean();
-
 
        res.render('pin/pinPage', {
            title: 'Pin Detail',
@@ -190,9 +164,4 @@ exports.viewPin = async (req, res, next) => {
    } catch (error) {
        next(error);
    }
-
-
-
-
 };
-
