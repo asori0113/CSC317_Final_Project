@@ -6,8 +6,13 @@ const { isAuthenticated } = require('../middlewares/auth');
 const pinController = require('../controllers/pinController');
 router.use(isAuthenticated);
 
+// POST /pin-post-creation - save pin to database
 router.post('/pin-post-creation', pinController.postCreate);
 
+// POST /pin-save/:pin - save pin to user list
+router.post('/pin-save/:pin', pinController.savePin);
+
+// GET /get-image/:pin - get Pin Image
 router.get('/get-image/:pin', pinController.getPinImage);
 
 // GET /user/pinPage - View a Pin

@@ -89,53 +89,16 @@ exports.postCreate = async (req, res, next) => {
 };
 
 exports.savePin = async (req, res, next) => {
-    upload.single('pinImage')(req, res, async (err) => {
-        if (err) {
-            // Handle file upload error
-            return res.status(400).render('user/save', {
-                title: 'Save Pin',
-                // user: req.session.user,
-                errors: [{ msg: err.message || 'File upload error' }]
-            });
-        }
-        try {
-            // Check for validation errors
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return res.status(400).render('user/save', {
-                    title: 'Save',
-                    errors: errors.array(),
-                    createPinData: {
-                        title: req.body.title,
-                        description: req.body.description,
-                        tags: req.body.tags.split(" ")
-                    }
-                });
-            }
-            if (req.file) {
-                // Save pin to database
-                await req.file.save();
 
-                // Add pin to current users pins
-                const user = await User.findById(req.session.user.id);
-                if (user.pinList) {
-                    user.pinList.push(pin._id);
-                    console.log("pin added to users list")
-                    await user.save();
-                }
-
-                req.session.flashMessage = {
-                    type: 'success',
-                    text: 'Post created.'
-                };
-                res.redirect('/user/home');
-
-            }
-        } catch
-        (error) {
-            next(error);
-        }
-    });
+    const pin = await Pin.findOne({ _id: req.params.pin });
+    // Add pin to current users pins
+    const user = await User.findById(req.session.user.id);
+    if (user.pinList) {
+        user.pinList.push(pin._id);
+        console.log("pin added to users list")
+        await user.save();
+    }
+    res.redirect('/user/home');
 };
 
 
