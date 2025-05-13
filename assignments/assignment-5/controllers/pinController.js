@@ -7,6 +7,7 @@ const Pin = require('../models/Pin');
 const upload = require('../middlewares/upload');
 const { validationResult } = require('express-validator');
 const User = require("../models/User");
+const { text } = require('express');
 
 
 /**
@@ -137,6 +138,68 @@ exports.savePin = async (req, res, next) => {
         }
     });
 };
+
+exports.deletePin = async (req, res, next) => {
+    try {
+        const userId = req.session.user?.id;
+        const pinId = req.params.pin;
+
+        if (!userId) {
+            return res.status(401).send('Unauthorized');
+        }
+
+        const pin = await Pin.findById(pinId);
+        if (!pin) {
+            return res.status(404).send('Pin not found');
+        }
+
+        const user = await User.findById(userId);
+
+        // Check if user is the owner
+        const isOwner = pin.userId.toString() === userId;
+
+        if (isOwner) {
+            // Owner deleting the pin
+
+            // Delete the pin from the database
+            await Pin.findByIdAndDelete(pinId);
+
+            // Remove pin from owner's createdPins
+            if (user.createdPins) {
+                user.createdPins = user.createdPins.filter(id => id.toString() !== pinId);
+            }
+
+            // Remove pin from all users' savedPins
+            await User.updateMany(
+                { savedPins: pinId },
+                { $pull: { savedPins: pinId } }
+            );
+
+            await user.save();
+
+            req.session.flashMessage = {
+                type: 'success',
+                text: 'Pin deleted from platform and unsaved for all users.'
+            };
+        } else {
+            if (user.savedPins) {
+                user.savedPins = user.savedPins.filter(id => id.toString() !== pinId);
+                await user.save();
+            }
+
+            req.session.flashMessage = {
+                type: 'success',
+                text: 'Pin unsaved from your collection.'
+            };
+        }
+
+        res.redirect('/user/home');
+    } catch (error) {
+        next(error);
+    }
+};
+
+
 
 
 exports.getPinImage = async (req, res, next) => {
