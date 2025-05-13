@@ -424,6 +424,7 @@ li.logo img {
     }
 
     .searchbar-footer {
+        position: fixed;
         flex: 1;
         margin-left: 5vw;
         margin-right: 5vw;
