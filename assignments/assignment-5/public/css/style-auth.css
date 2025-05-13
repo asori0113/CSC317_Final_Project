@@ -135,10 +135,10 @@ header.auth {
     border-radius: 20px;
 }
 
-/* Added: Sticky sidebar  */
 
 .sidebar {
-    position: sticky;
+    position: fixed;
+    z-index: 500;
 }
 
 ul.authed-nav-links {
@@ -191,7 +191,10 @@ li.logo img {
 }
 
 .container-auth {
-    margin: 2vh 2vw;
+    position: relative;
+    top: 2vh;
+    left: 10vw;
+    margin-right: 12vw;
 
 }
 
@@ -381,96 +384,23 @@ li.logo img {
   margin: 1rem 0;
 }
 
+/* Added: Responsive layout  */
 
-/* 
- * Form Elements 
- */
- 
-.auth-form,
-.settings-container {
-  max-width: 500px;
-  padding: 2rem;
-  background-color: var(--white);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"] {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-.form-hint {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-top: 0.25rem;
-}
-
-.form-actions {
-  margin-top: 2rem;
-}
-
-.form-footer {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-}
-
-
-@keyframes x-slide-in {
-    from {
-        transform: translateX(-100%);
-    }
-
-    to {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes y-slide-in {
-    from {
-        transform: translateY(-200%);
-    }
-
-    to {
-        transform: translateY(0%);
-    }
-}
-
-/* Added: Responsive column layout  */
 @media (min-width: 1025px) {
-    li.hide {
+    footer.profile {
         display: none;
     }
+    li.home,li.create,li.search {
+        display: none;
+    }
+
+    
 
 }
 
 @media (max-width:1280px) {
-    .searchbar {
-        margin-right: 3vw;
+    .searchbar-container {
+        display: none;
     }
 
     .sidebar {
@@ -487,6 +417,20 @@ input:focus {
         margin: 2rem 4rem 4rem 4rem;
     }
 
+    footer.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .searchbar-footer {
+        position: fixed;
+        flex: 1;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+}
 @media (max-width: 1024px) {
     header.auth {
         display: flex;
@@ -506,7 +450,6 @@ input:focus {
 
     li.about,
     li.settings,
-    div.searchbar,
     nav.sidebar,
     div.profile-avatar-top {
         display: none;
