@@ -2,7 +2,7 @@ PROJECT PROPOSAL
 ======================================
 We intend to create a pinterest clone  using HTML, CSS, and javascript.
 
-PLAN FOR MAIN FEATURES
+MAIN FEATURES
 ======================================
 Elements from each feature may not include everything shown on the real website either because we chose not to implement it or we missed it.
 
@@ -19,35 +19,12 @@ posts made by other users.
 
 
 
-MINOR FEATURES
+MINOR FEATURES (MAY NOT BE IMPLEMENTED)
 ======================================
 **Home Page - Hover over image features, search bar
 
 **Create Page - Tags and board
 
 **Pin Page - Comments, Related images, Enlarge image.
-
-ASSIGNMENT ESSENTIALS 
-======================================
-**File setup -
-assignments/
-└── assignment-5/
-    ├── app.js
-    ├── package.json
-    ├── public/
-    │   ├── css/
-    │   ├── js/
-    │   └── images/
-    ├── routes/
-    │   └── api/
-    ├── views/
-    ├── middleware/
-    ├── models/
-    ├── config/
-    ├── utils/
-    └── README.md
-
-
-
 
 
