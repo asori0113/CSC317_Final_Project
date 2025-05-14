@@ -100,58 +100,60 @@ exports.deletePin = async (req, res, next) => {
         const userId = req.session.user?.id;
         const pinId = req.params.pin;
 
+        console.log("deletePin called");
+        console.log("userId from session:", userId);
+        console.log("pinId from params:", pinId);
+
         if (!userId) {
+            console.log("Unauthorized - no user ID");
             return res.status(401).send('Unauthorized');
         }
 
         const pin = await Pin.findById(pinId);
         if (!pin) {
+            console.log("Pin not found in DB");
             return res.status(404).send('Pin not found');
         }
 
         const user = await User.findById(userId);
-
-        // Check if user is the owner
         const isOwner = pin.userId.toString() === userId;
 
+        console.log("Owner of pin:", pin.userId.toString());
+        console.log("Is current user the owner?", isOwner);
+
         if (isOwner) {
-            // Owner deleting the pin
-
-            // Delete the pin from the database
             await Pin.findByIdAndDelete(pinId);
+            console.log("Pin deleted from DB");
 
-            // Remove pin from owner's createdPins
-            if (user.createdPins) {
-                user.createdPins = user.createdPins.filter(id => id.toString() !== pinId);
-            }
+            user.pinList = user.pinList.filter(id => id.toString() !== pinId);
 
-            // Remove pin from all users' savedPins
             await User.updateMany(
-                { savedPins: pinId },
-                { $pull: { savedPins: pinId } }
+                { pinList: pinId },
+                { $pull: { pinList: pinId } }
             );
-
             await user.save();
 
-            req.session.flashMessage = {
-                type: 'success',
-                text: 'Pin deleted from platform and unsaved for all users.'
-            };
+            console.log("Pin removed from all users' lists");
         } else {
-            if (user.savedPins) {
-                user.savedPins = user.savedPins.filter(id => id.toString() !== pinId);
-                await user.save();
-            }
-
-            req.session.flashMessage = {
-                type: 'success',
-                text: 'Pin unsaved from your collection.'
-            };
+            user.pinList = user.pinList.filter(id => id.toString() !== pinId);
+            await user.save();
+            console.log("Pin unsaved from current user list");
         }
 
-        res.redirect('/user/home');
+        req.session.user.pinList = user.pinList;
+        req.session.save();
+
+        req.session.flashMessage = {
+            type: 'success',
+            text: isOwner
+                ? 'Pin deleted from platform and unsaved for all users.'
+                : 'Pin unsaved from your collection.'
+        };
+
+        return res.redirect('/user/profile');
     } catch (error) {
-        next(error);
+        console.error("Error in deletePin:", error);
+        return next(error);
     }
 };
 

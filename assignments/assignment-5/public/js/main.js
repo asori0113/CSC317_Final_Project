@@ -39,3 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+document.getElementById('delete-form').addEventListener('submit', async function (event) {
+  event.preventDefault(); // Prevent the form from submitting normally
+
+  const pinId = '<%= pin._id %>'; // Use the actual pin ID here
+  const response = await fetch(`/pin/pin-delete/${pinId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    // Handle successful deletion (e.g., redirect or update the UI)
+    window.location.href = '/user/home'; // Redirect to home page
+  } else {
+    // Handle errors
+    alert('Failed to delete pin');
+  }
+});

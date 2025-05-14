@@ -36,7 +36,12 @@
       <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
         <!-- Added: Wrapper around image and save button -->
         <div class="pin-img-wrapper">
-          <button class="save-btn">Save</button>
+          <form action="/pin/pin-delete/<%= pin._id %>" method="POST">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+          <form action="/pin/pin-save/<%= pin._id %>" method="POST">
+            <button class="save-btn">Save</button>
+          </form>
           <img
             src="/pin/get-image/<%= pin._id %>"
             alt="<%= pin.title || 'Pin Image' %>"
@@ -44,6 +49,8 @@
             loading="lazy"
           >
         </div>
+
+        
       </a>
     <% }); %>
     </div>
@@ -52,14 +59,20 @@
         <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
           <!-- Added: Wrapper around image and save button -->
           <div class="pin-img-wrapper">
-            <button class="save-btn">Save</button>
+            <form action="/pin/pin-delete/<%= pin._id %>" method="POST">
+              <button type="submit" class="delete-btn">Unsave</button>
+            </form>
             <img
                     src="/pin/get-image/<%= pin._id %>"
                     alt="<%= pin.title || 'Pin Image' %>"
                     title="<%= pin.title || 'Pin Image' %>"
                     loading="lazy"
             >
+
+            
           </div>
+
+          
         </a>
       <% }); %>
      <!-- Just copy code from created-pins. This is empty for now since website crashes with an incomplete implementation -->
