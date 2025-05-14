@@ -4,20 +4,22 @@
 <div class="container-auth">
   <div class="pin-grid">
       <% pins.forEach((pin) => { %>
-          <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
-        <!-- Added: Wrapper around image and save button -->
-        <div class="pin-img-wrapper">
-            <form action="/pin/pin-save/<%= pin._id %>" method="POST">
-              <button class="save-btn">Save</button>
-            </form> 
-          <img
-            src="/pin/get-image/<%= pin._id %>"
-            alt="<%= pin.title || 'Pin Image' %>"
-            title="<%= pin.title || 'Pin Image' %>"
-            loading="lazy"
-          >
-        </div>
-      </a>
+      <div class="pin-card">
+          <div class="pin-img-wrapper">
+              <form action="/pin/pin-save/<%= pin._id %>" method="POST">
+                  <button class="save-btn">Save</button>
+              </form>
+              <a href="/pin/pinPage/<%= pin._id %>">
+            <!-- Added: Wrapper around image and save button -->
+              <img
+                src="/pin/get-image/<%= pin._id %>"
+                alt="<%= pin.title || 'Pin Image' %>"
+                title="<%= pin.title || 'Pin Image' %>"
+                loading="lazy"
+              >
+              </a>
+          </div>
+      </div>
     <% }); %>
   </div>
 </div>
