@@ -1,30 +1,66 @@
-PROJECT PROPOSAL
-======================================
-We intend to create a pinterest clone  using HTML, CSS, and javascript.
+# 📌 Pinterest Clone
 
-MAIN FEATURES
-======================================
-Elements from each feature may not include everything shown on the real website either because we chose not to implement it or we missed it.
+A simplified Pinterest clone built using **HTML**, **CSS**, and **JavaScript**.
 
-**Profile - Includes profile image, edit profile, created pins, saved pins. Saved pins are organized under boards and All Pins.
+---
 
-**Log-in Page - Show login or sign up button with a grid of stock images as the background. 
+## 🔧 Main Features
 
-**Home Page - The homepage will display all pins made by the user in a grid layout. Also show 
-posts made by other users.
+> ⚠️ *Note: Not all features from the official Pinterest site are included. Some elements are simplified or omitted.*
 
-**Pin Page (When you click an image) - A hyper-linked title that redirects to the link provided during creation, the pin description, and pin owner. These are all under the pin displayed. Display buttons that save to a board and save to profile. Button/Arrow icon to go back to home.
+### 👤 Profile Page
+- Profile image
+- Edit profile
+- View created pins and saved pins
+- Saved pins organized into:
+  - **Boards**
+  - **All Pins**
 
-**Create Page - Contains a form to create a pin. Main things to implement include file upload, title, description, and link. Some features are not required to be able to submit a form. 
+### 🔐 Log-in Page
+- Login and Sign-up buttons
+- Background displays a grid of stock images
 
+### 🏠 Home Page
+- Grid layout displaying:
+  - User's pins
+  - Pins from other users
 
+### 📌 Pin Page (Image Click View)
+- Displays:
+  - Pin image
+  - Hyperlinked title (redirects to provided link)
+  - Description
+  - Pin owner information
+- Buttons for:
+  - Saving to a board
+  - Saving to profile
+  - Returning to the home page
 
-MINOR FEATURES (MAY NOT BE IMPLEMENTED)
-======================================
-**Home Page - Hover over image features, search bar
+### ➕ Create Pin Page
+- Form includes:
+  - File upload
+  - Title
+  - Description
+  - Link
+- Some fields are optional for form submission
 
-**Create Page - Tags and board
+---
 
-**Pin Page - Comments, Related images, Enlarge image.
+## 🧪 Minor Features (Optional)
 
+These may or may not be implemented:
 
+### 🏠 Home Page
+- Image hover effects
+- Search bar
+
+### ➕ Create Page
+- Tags input
+- Board selection
+
+### 📌 Pin Page
+- Comments section
+- Related images
+- Enlarge image on click
+
+---
