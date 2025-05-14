@@ -13,7 +13,7 @@ router.post('/pin-post-creation', pinController.postCreate);
 router.post('/pin-save/:pin', pinController.savePin);
 
 // POST /pin-delete/:pin - delte pin to user(s) list
-router.post('/pin/pin-delete/:pin', pinController.deletePin);
+router.post('/pin-delete/:pin', pinController.deletePin);
 
 // GET /get-image/:pin - get Pin Image
 router.get('/get-image/:pin', pinController.getPinImage);
