@@ -3,6 +3,8 @@
  * Provides functions to protect routes that require authentication
  */
 
+
+
 // Middleware to check if user is authenticated
 exports.isAuthenticated = (req, res, next) => {
   console.log('Session check - session exists:', !!req.session);
