@@ -58,6 +58,9 @@
       <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
         <!-- Added: Wrapper around image and save button -->
         <div class="pin-img-wrapper">
+          <form action="/pin/pin-delete/<%= pin._id %>">
+            <button class="delete-btn">Delete</button>
+          </form>
           <form action="/pin/pin-save/<%= pin._id %>" method="POST">
             <button class="save-btn">Save</button>
           </form>

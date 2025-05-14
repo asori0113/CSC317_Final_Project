@@ -8,8 +8,11 @@
         <!-- Added: Wrapper around image and save button -->
         <div class="pin-img-wrapper">
             <form action="/pin/pin-save/<%= pin._id %>" method="POST">
-          <button class="save-btn">Save</button>
+              <button class="save-btn">Save</button>
             </form>
+            <form action="/pin/pin-delete/<%= pin._id%>" method="POST">
+              <button class="delete-btn">Delete</button>
+            </form>  
           <img
             src="/pin/get-image/<%= pin._id %>"
             alt="<%= pin.title || 'Pin Image' %>"
