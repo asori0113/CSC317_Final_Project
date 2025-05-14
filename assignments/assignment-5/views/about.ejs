@@ -1,12 +1,15 @@
-
-<%- include('./partials/header') %>
-
+<% if (!isAuthenticated) { %>
+  <%- include('./partials/header') %>
+  
+<% } else { %>
+    <%- include('./partials/header-auth') %>
+<% } %>
 <!-- Logged in: use class= container-auth which has a different style-->
 <!-- Use class=container when logged out-->
   <div class="container">
   <div class="about-section">
-    <h1>About This Application</h1>
-    <p>This is a starter template for a web application with user authentication features. It demonstrates:</p>
+    <h1>About The Template</h1>
+    <p>Provided by Professor Oliviera for the class CSC317 - Intro to Web Development at SFSU for a web application with user authentication features. It demonstrates:</p>
     
     <ul>
       <li>User registration and login</li>
@@ -18,7 +21,32 @@
       <li>Protected routes that require authentication</li>
     </ul>
     
-    <p>This template is intended for educational purposes to help students understand authentication concepts in web applications.</p>
+    
+  </div>
+
+  <div class="about-project">
+    <h1>About I-Pins</h1>
+    <p>A pinterest clone made by a group of four students.</p>
+    <h3>Members</h3>
+      <ul>
+        <li>John Tatlonghari</li>
+        <li>Sophia Zoller</li>
+        <li>Aljhay Soriano</li>
+        <li>Muhammad Ahmad</li>
+      </ul>
+    <h3>Core Features</h3>
+      <ul>
+        <li>Create</li>
+        <li>Save</li>
+        <li>Pin grid</li>
+        <li>Search</li>
+        <li>Image tags</li>
+        <li>Show profile info, along with ability to display created pins or saved pins</li>
+        <li>Display pin details</li>
+      </ul>
+
+    
+    
   </div>
   
   <div class="tech-stack">

@@ -1,0 +1,16 @@
+  </main>
+
+  <footer class="profile">
+     <form class ="searchbar-footer" action="/user/home/search" method="GET">
+                    <input type="text"
+                           id="searchbar"
+                           name="searchbar"
+                           value="<%= typeof searchbar !== 'undefined' ? searchbar.searchInput || '' : '' %>"
+                           placeholder="Enter tags separated by spaces"
+                    > 
+                    </form>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

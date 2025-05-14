@@ -16,10 +16,12 @@ exports.getProfile = async (req, res) => {
   const user = {...req.session.user};
   user.hasProfileImage = user.hasProfileImage || false;
   let   pins = await Pin.find({userId: req.session.user.id});
+  let   savedPins = await Pin.find({_id: {$in: req.session.user.pinList}});
   res.render('user/profile', {
     title: 'Profile',
     user: user,
-    pins:pins
+    pins:pins,
+    savedPins: savedPins
   });
 };
 
