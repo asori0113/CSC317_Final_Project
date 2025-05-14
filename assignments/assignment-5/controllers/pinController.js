@@ -78,22 +78,38 @@ exports.postCreate = async (req, res, next) => {
 
 
 exports.savePin = async (req, res, next) => {
-
+  try {
     const pin = await Pin.findOne({ _id: req.params.pin });
     const user = await User.findById(req.session.user.id);
 
-    // Add pin to current users pins
-    if (user.pinList) {
-        user.pinList.push(pin._id);
-        console.log("pin added to users list")
-        await user.save();
-
-        // also add to session
-        req.session.user.pinList = user.pinList;
-        req.session.save();
+    if (!pin || !user) {
+      const error = new Error('Pin or user not found');
+      error.statusCode = 404;
+      return next(error);
     }
+
+    // Prevent users from saving their own pins
+    if (pin.userId.toString() === req.session.user.id) {
+      const error = new Error('You cannot save your own pin.');
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    // Avoid duplicates
+    if (!user.pinList.includes(pin._id.toString())) {
+      user.pinList.push(pin._id);
+      await user.save();
+
+      req.session.user.pinList = user.pinList;
+      req.session.save();
+    }
+
     res.redirect('/user/home');
+  } catch (err) {
+    next(err); // Pass to centralized error handler
+  }
 };
+
 
 exports.deletePin = async (req, res, next) => {
     try {
@@ -186,28 +202,6 @@ exports.getPinImage = async (req, res, next) => {
 
 
 // View a pin after clicking it
-
-
-exports.viewPin = async (req, res, next) => {
-   try {
-       //Find one pin with given id
-       const pin = await Pin.findOne({ _id: req.params.pin });
-       if (!pin || !pin.data) {
-           return res.status(404).send('Image not found');
-       }
-
-
-       res.render('pin/pinPage', {
-           title: 'Home',
-           user: req.session.user,
-           pin: pin
-       });
-
-
-   } catch (error) {
-       next(error);
-   }
-};
 
 
 exports.viewPin = async (req, res, next) => {
