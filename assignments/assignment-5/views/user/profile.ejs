@@ -33,8 +33,8 @@
     <div class="pin-display">
     <div class="pin-grid" id="created-pins">
       <% pins.forEach((pin) => { %>
-      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
         <!-- Added: Wrapper around image and save button -->
+        <div class="pin-card">
         <div class="pin-img-wrapper">
           <form action="/pin/pin-delete/<%= pin._id %>" method="POST">
             <button type="submit" class="delete-btn">Delete</button>
@@ -42,38 +42,39 @@
           <form action="/pin/pin-save/<%= pin._id %>" method="POST">
             <button class="save-btn">Save</button>
           </form>
+          <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
           <img
             src="/pin/get-image/<%= pin._id %>"
             alt="<%= pin.title || 'Pin Image' %>"
             title="<%= pin.title || 'Pin Image' %>"
             loading="lazy"
           >
+          </a>
+        </div>
         </div>
 
         
-      </a>
+
     <% }); %>
     </div>
     <div class="pin-grid" id="saved-pins">
       <% savedPins.forEach((pin) => { %>
-        <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
+        <div class="pin-card">
+        <div class="pin-img-wrapper">
+        <form action="/pin/pin-delete/<%= pin._id %>" method="POST">
+          <button type="submit" class="delete-btn">Unsave</button>
+        </form>
+        <a href="/pin/pinPage/<%= pin._id %>">
           <!-- Added: Wrapper around image and save button -->
-          <div class="pin-img-wrapper">
-            <form action="/pin/pin-delete/<%= pin._id %>" method="POST">
-              <button type="submit" class="delete-btn">Unsave</button>
-            </form>
             <img
                     src="/pin/get-image/<%= pin._id %>"
                     alt="<%= pin.title || 'Pin Image' %>"
                     title="<%= pin.title || 'Pin Image' %>"
                     loading="lazy"
             >
-
-            
-          </div>
-
-          
         </a>
+        </div>
+        </div>
       <% }); %>
 
     </div>

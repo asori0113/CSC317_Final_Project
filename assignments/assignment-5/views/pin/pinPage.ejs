@@ -48,30 +48,27 @@
          </a>
        </div>
      </div>
-
-
    </div>
 
   <h3 style="margin-top: 1rem;"> You might like these:</h3>
   <div class="pin-grid">
     <% pins.forEach((pin) => { %>
-      <a href="/pin/pinPage/<%= pin._id %>" class="pin-card">
-        <!-- Added: Wrapper around image and save button -->
-        <div class="pin-img-wrapper">
-          <form action="/pin/pin-delete/<%= pin._id %>">
-            <button class="delete-btn">Delete</button>
-          </form>
-          <form action="/pin/pin-save/<%= pin._id %>" method="POST">
-            <button class="save-btn">Save</button>
-          </form>
-          <img
-                  src="/pin/get-image/<%= pin._id %>"
-                  alt="<%= pin.title || 'Pin Image' %>"
-                  title="<%= pin.title || 'Pin Image' %>"
-                  loading="lazy"
-          >
+    <div class="pin-card">
+      <div class="pin-img-wrapper">
+        <a href="/pin/pinPage/<%= pin._id %>">
+          <!-- Added: Wrapper around image and save button -->
+            <form action="/pin/pin-save/<%= pin._id %>" method="POST">
+              <button class="save-btn">Save</button>
+            </form>
+            <img
+                    src="/pin/get-image/<%= pin._id %>"
+                    alt="<%= pin.title || 'Pin Image' %>"
+                    title="<%= pin.title || 'Pin Image' %>"
+                    loading="lazy"
+            >
+        </a>
         </div>
-      </a>
+    </div>
     <% }); %>
   </div>
 </div>
