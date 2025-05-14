@@ -1,26 +1,35 @@
-CONTRIBUTIONS
+# Contributions
 
-John Tatlonghari
-    * Team coordination         * Profile page - Layout, show created pins
-    * Most CSS and general layout  * Some backend 
-    * About                     
-    * Sidebar
-    * Top nav bar
+## John Tatlonghari
+- Team coordination  
+- Profile page: Layout, show created pins  
+- Most CSS and general layout  
+- Some backend  
+- Design decisions and feature planning  
+- About page  
+- Sidebar  
+- Top navigation bar  
 
-Sophia Zoller
-    * Basic pin functionality           * Search
-    * Functions: getPinImage and postCreate * Functions: getHomeFiltered and part of viewPin
-    * Pin model (except for user id)    * Search for pins with the same tags
-    * creating a pin and sending it to the database     * Related pins in pin Page
-    * get pin image
+## Sophia Zoller
+- Basic pin functionality  
+- Search  
+- Functions: `getPinImage`, `postCreate`  
+- Functions: `getHomeFiltered`, part of `viewPin`  
+- Pin model (except for user ID)  
+- Search for pins with the same tags  
+- Creating a pin and sending it to the database  
+- Related pins on the pin page  
+- `getPinImage` function  
 
-Muhammad Ahmad 
-    * 
+## Muhammad Ahmad
+- Image grid (pin grid, card, etc.)  
+- Pin page 
+- Creating the save button  
 
-
-
-Aljhay Soriano
-    * Delete button, routing, styling delete button over photo wrappers, unsave button, and I also created part of the structure for the create form
-    
-
-
+## Aljhay Soriano
+- Delete button functionality and styling  
+- Routing  
+- Styling delete button over photo wrappers  
+- Save pin backend  
+- Unsave button  
+- Create form  

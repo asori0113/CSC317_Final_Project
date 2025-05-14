@@ -1,30 +1,89 @@
-PROJECT PROPOSAL
-======================================
-We intend to create a pinterest clone  using HTML, CSS, and javascript.
+Pinterest Clone Project
 
-MAIN FEATURES
-======================================
-Elements from each feature may not include everything shown on the real website either because we chose not to implement it or we missed it.
+A simplified clone of Pinterest built using HTML, CSS, and JavaScript.
+🔧 Main Features
 
-**Profile - Includes profile image, edit profile, created pins, saved pins. Saved pins are organized under boards and All Pins.
+    Note: Some features may be simplified compared to the original Pinterest site.
 
-**Log-in Page - Show login or sign up button with a grid of stock images as the background. 
+👤 Profile Page
 
-**Home Page - The homepage will display all pins made by the user in a grid layout. Also show 
-posts made by other users.
+    Displays profile image.
 
-**Pin Page (When you click an image) - A hyper-linked title that redirects to the link provided during creation, the pin description, and pin owner. These are all under the pin displayed. Display buttons that save to a board and save to profile. Button/Arrow icon to go back to home.
+    Edit profile functionality.
 
-**Create Page - Contains a form to create a pin. Main things to implement include file upload, title, description, and link. Some features are not required to be able to submit a form. 
+    View created pins and saved pins.
 
+    Saved pins organized into:
 
+        Boards
 
-MINOR FEATURES (MAY NOT BE IMPLEMENTED)
-======================================
-**Home Page - Hover over image features, search bar
+        All Pins
 
-**Create Page - Tags and board
+🔐 Log-In Page
 
-**Pin Page - Comments, Related images, Enlarge image.
+    Options for logging in or signing up.
 
+    Background features a grid of stock images.
 
+🏠 Home Page
+
+    Displays all pins created by the user in a grid layout.
+
+    Also shows pins from other users.
+
+📌 Pin Detail Page
+
+    Displays:
+
+        Pin image
+
+        Hyperlinked title (redirects to the provided link)
+
+        Description
+
+        Owner information
+
+    Action buttons:
+
+        Save to a board
+
+        Save to profile
+
+        Back to home (via button or arrow icon)
+
+➕ Create Pin Page
+
+    Form for creating a new pin.
+
+    Supports:
+
+        File upload (image)
+
+        Title
+
+        Description
+
+        Link
+
+    Not all fields are required for submission.
+
+🛠️ Minor Features (Optional)
+Home Page
+
+    Hover effects on images
+
+    Search bar
+
+Create Page
+
+    Add tags
+
+    Choose a board
+
+Pin Detail Page
+
+    Comments section
+
+    Related images
+
+    Enlarge image view
