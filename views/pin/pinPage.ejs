@@ -57,9 +57,6 @@
       <div class="pin-img-wrapper">
         <a href="/pin/pinPage/<%= pin._id %>">
           <!-- Added: Wrapper around image and save button -->
-            <form action="/pin/pin-save/<%= pin._id %>" method="POST">
-              <button class="save-btn">Save</button>
-            </form>
             <img
                     src="/pin/get-image/<%= pin._id %>"
                     alt="<%= pin.title || 'Pin Image' %>"
@@ -67,6 +64,9 @@
                     loading="lazy"
             >
         </a>
+        <form action="/pin/pin-save/<%= pin._id %>" method="POST">
+          <button class="save-btn">Save</button>
+        </form>
         </div>
     </div>
     <% }); %>
