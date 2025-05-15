@@ -1,11 +1,8 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+**/.grade/
+
+**/quizzes/
+
+
 # macOS
 .DS_Store
 
@@ -25,9 +22,9 @@ tmp/
 .vscode/
 
 
-# Env files
+# Env files 
 # Ignore all .env files everywhere
 **/.env
-
+  
 
 CLAUDE.md
