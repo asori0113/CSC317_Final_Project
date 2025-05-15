@@ -6,9 +6,6 @@
       <% pins.forEach((pin) => { %>
       <div class="pin-card">
           <div class="pin-img-wrapper">
-              <form action="/pin/pin-save/<%= pin._id %>" method="POST">
-                  <button class="save-btn">Save</button>
-              </form>
               <a href="/pin/pinPage/<%= pin._id %>">
             <!-- Added: Wrapper around image and save button -->
               <img
@@ -18,6 +15,9 @@
                 loading="lazy"
               >
               </a>
+              <form action="/pin/pin-save/<%= pin._id %>" method="POST">
+                  <button class="save-btn">Save</button>
+              </form>
           </div>
       </div>
     <% }); %>
